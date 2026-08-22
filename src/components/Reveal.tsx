@@ -50,7 +50,7 @@ export function ImageReveal({
   return (
     <motion.div
       className={className}
-      initial={reduce ? undefined : { clipPath: "inset(0 0 100% 0)" }}
+      initial={{ clipPath: reduce ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
       whileInView={{ clipPath: "inset(0 0 0% 0)" }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}

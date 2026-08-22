@@ -32,12 +32,12 @@ export function ActionButton({
   className = "",
   arrow = true,
 }: {
-  href?: string;
-  to?: string;
+  href?: string | undefined;
+  to?: string | undefined;
   children: ReactNode;
   variant?: Variant;
   size?: Size;
-  className?: string;
+  className?: string | undefined;
   arrow?: boolean;
 }) {
   const cls = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
