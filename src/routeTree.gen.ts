@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
@@ -27,6 +29,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
@@ -69,6 +81,8 @@ const CollectionsSlugProductSlugRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -80,6 +94,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/collections': typeof CollectionsIndexRoute
@@ -92,6 +108,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/collections/': typeof CollectionsIndexRoute
@@ -105,6 +123,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/contact'
+    | '/sitemap.xml'
     | '/gallery/$slug'
     | '/services/$slug'
     | '/collections/'
@@ -116,6 +136,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/contact'
+    | '/sitemap.xml'
     | '/gallery/$slug'
     | '/services/$slug'
     | '/collections'
@@ -127,6 +149,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/contact'
+    | '/sitemap.xml'
     | '/gallery/$slug'
     | '/services/$slug'
     | '/collections/'
@@ -139,6 +163,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   GallerySlugRoute: typeof GallerySlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   CollectionsIndexRoute: typeof CollectionsIndexRoute
@@ -162,6 +188,20 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/collections/': {
@@ -219,6 +259,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   GallerySlugRoute: GallerySlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   CollectionsIndexRoute: CollectionsIndexRoute,
