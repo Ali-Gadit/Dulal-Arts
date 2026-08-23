@@ -10,33 +10,168 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
+import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
+import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as CollectionsSlugIndexRouteImport } from './routes/collections.$slug.index'
+import { Route as CollectionsSlugProductSlugRouteImport } from './routes/collections.$slug.$productSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
+  id: '/collections/',
+  path: '/collections/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryIndexRoute = GalleryIndexRouteImport.update({
+  id: '/gallery/',
+  path: '/gallery/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GallerySlugRoute = GallerySlugRouteImport.update({
+  id: '/gallery/$slug',
+  path: '/gallery/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsSlugIndexRoute = CollectionsSlugIndexRouteImport.update({
+  id: '/collections/$slug/',
+  path: '/collections/$slug/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectionsSlugProductSlugRoute =
+  CollectionsSlugProductSlugRouteImport.update({
+    id: '/collections/$slug/$productSlug',
+    path: '/collections/$slug/$productSlug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/gallery/$slug': typeof GallerySlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/collections/': typeof CollectionsIndexRoute
+  '/gallery/': typeof GalleryIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/collections/$slug/$productSlug': typeof CollectionsSlugProductSlugRoute
+  '/collections/$slug/': typeof CollectionsSlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/gallery/$slug': typeof GallerySlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/collections': typeof CollectionsIndexRoute
+  '/gallery': typeof GalleryIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/collections/$slug/$productSlug': typeof CollectionsSlugProductSlugRoute
+  '/collections/$slug': typeof CollectionsSlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/gallery/$slug': typeof GallerySlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/collections/': typeof CollectionsIndexRoute
+  '/gallery/': typeof GalleryIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/collections/$slug/$productSlug': typeof CollectionsSlugProductSlugRoute
+  '/collections/$slug/': typeof CollectionsSlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/sitemap.xml'
+    | '/gallery/$slug'
+    | '/services/$slug'
+    | '/collections/'
+    | '/gallery/'
+    | '/services/'
+    | '/collections/$slug/$productSlug'
+    | '/collections/$slug/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/sitemap.xml'
+    | '/gallery/$slug'
+    | '/services/$slug'
+    | '/collections'
+    | '/gallery'
+    | '/services'
+    | '/collections/$slug/$productSlug'
+    | '/collections/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/sitemap.xml'
+    | '/gallery/$slug'
+    | '/services/$slug'
+    | '/collections/'
+    | '/gallery/'
+    | '/services/'
+    | '/collections/$slug/$productSlug'
+    | '/collections/$slug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  GallerySlugRoute: typeof GallerySlugRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  CollectionsIndexRoute: typeof CollectionsIndexRoute
+  GalleryIndexRoute: typeof GalleryIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+  CollectionsSlugProductSlugRoute: typeof CollectionsSlugProductSlugRoute
+  CollectionsSlugIndexRoute: typeof CollectionsSlugIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +183,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections/': {
+      id: '/collections/'
+      path: '/collections'
+      fullPath: '/collections/'
+      preLoaderRoute: typeof CollectionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/': {
+      id: '/gallery/'
+      path: '/gallery'
+      fullPath: '/gallery/'
+      preLoaderRoute: typeof GalleryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/$slug': {
+      id: '/gallery/$slug'
+      path: '/gallery/$slug'
+      fullPath: '/gallery/$slug'
+      preLoaderRoute: typeof GallerySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections/$slug/': {
+      id: '/collections/$slug/'
+      path: '/collections/$slug'
+      fullPath: '/collections/$slug/'
+      preLoaderRoute: typeof CollectionsSlugIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collections/$slug/$productSlug': {
+      id: '/collections/$slug/$productSlug'
+      path: '/collections/$slug/$productSlug'
+      fullPath: '/collections/$slug/$productSlug'
+      preLoaderRoute: typeof CollectionsSlugProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  GallerySlugRoute: GallerySlugRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  CollectionsIndexRoute: CollectionsIndexRoute,
+  GalleryIndexRoute: GalleryIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+  CollectionsSlugProductSlugRoute: CollectionsSlugProductSlugRoute,
+  CollectionsSlugIndexRoute: CollectionsSlugIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
