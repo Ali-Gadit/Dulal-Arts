@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
-import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle, Phone, Facebook } from "lucide-react";
 import { siteSettings } from "@/content/data";
 import { getServices } from "@/content/queries";
 import { messages, whatsappLink } from "@/lib/whatsapp";
@@ -79,196 +79,74 @@ function ContactPage() {
       />
 
       <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto grid max-w-[86rem] gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:col-span-5">
-            <Reveal>
-              <h2 className="text-2xl sm:text-3xl">Reach Us Directly</h2>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <span className="rule-gold mt-6" />
-            </Reveal>
+        <div className="mx-auto max-w-xl px-5 sm:px-8 text-center">
+          <Reveal>
+            <h2 className="text-2xl sm:text-3xl">Reach Us Directly</h2>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <span className="rule-gold mx-auto mt-6" />
+          </Reveal>
 
-            <ul className="mt-10 space-y-6">
-              {siteSettings.whatsappNumber ? (
-                <ContactRow icon={<MessageCircle className="h-4 w-4" />} label="WhatsApp">
-                  <a
-                    href={whatsappLink(messages.general) ?? "#"}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="link-underline"
-                  >
-                    {siteSettings.whatsappNumber}
-                  </a>
-                </ContactRow>
-              ) : null}
-              {siteSettings.phone ? (
-                <ContactRow icon={<Phone className="h-4 w-4" />} label="Phone">
-                  <a href={`tel:${siteSettings.phone}`} className="link-underline">
-                    {siteSettings.phone}
-                  </a>
-                </ContactRow>
-              ) : null}
-              {siteSettings.email ? (
-                <ContactRow icon={<Mail className="h-4 w-4" />} label="Email">
-                  <a href={`mailto:${siteSettings.email}`} className="link-underline">
-                    {siteSettings.email}
-                  </a>
-                </ContactRow>
-              ) : null}
-              {siteSettings.address ? (
-                <ContactRow icon={<MapPin className="h-4 w-4" />} label="Location">
-                  {siteSettings.address}
-                </ContactRow>
-              ) : null}
-              {siteSettings.instagramUrl ? (
-                <ContactRow icon={<Instagram className="h-4 w-4" />} label="Instagram">
-                  <a
-                    href={siteSettings.instagramUrl}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="link-underline"
-                  >
-                    @dulal.arts
-                  </a>
-                </ContactRow>
-              ) : null}
-            </ul>
-
-            {!siteSettings.whatsappNumber ? (
-              <Reveal delay={0.12}>
-                <p className="mt-10 frame-gold bg-card p-6 text-sm leading-relaxed text-muted-foreground">
-                  WhatsApp, phone and email details haven't been added yet. Once the business number is set in
-                  site settings, every WhatsApp button on the site activates automatically. Until then,
-                  Instagram is the fastest way to reach us.
-                </p>
-              </Reveal>
+          <ul className="mt-10 space-y-6 text-left">
+            {siteSettings.whatsappNumber ? (
+              <ContactRow icon={<MessageCircle className="h-4 w-4" />} label="WhatsApp">
+                <a
+                  href={whatsappLink(messages.general) ?? "#"}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="link-underline"
+                >
+                  {siteSettings.whatsappNumber}
+                </a>
+              </ContactRow>
             ) : null}
-          </div>
+            {siteSettings.phone ? (
+              <ContactRow icon={<Phone className="h-4 w-4" />} label="Phone">
+                <a href={`tel:${siteSettings.phone}`} className="link-underline">
+                  {siteSettings.phone}
+                </a>
+              </ContactRow>
+            ) : null}
+            {siteSettings.email ? (
+              <ContactRow icon={<Mail className="h-4 w-4" />} label="Email">
+                <a href={`mailto:${siteSettings.email}`} className="link-underline">
+                  {siteSettings.email}
+                </a>
+              </ContactRow>
+            ) : null}
+            {siteSettings.address ? (
+              <ContactRow icon={<MapPin className="h-4 w-4" />} label="Location">
+                {siteSettings.address}
+              </ContactRow>
+            ) : null}
+            {siteSettings.instagramUrl ? (
+              <ContactRow icon={<Instagram className="h-4 w-4" />} label="Instagram">
+                <a
+                  href={siteSettings.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="link-underline"
+                >
+                  @dulal.arts
+                </a>
+              </ContactRow>
+            ) : null}
+            {siteSettings.facebookUrl ? (
+              <ContactRow icon={<Facebook className="h-4 w-4" />} label="Facebook">
+                <a
+                  href={siteSettings.facebookUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="link-underline"
+                >
+                  Dulal Arts
+                </a>
+              </ContactRow>
+            ) : null}
+          </ul>
 
-          <div className="lg:col-span-7">
-            {submitted ? (
-              <div className="frame-gold bg-card p-8 lg:p-10">
-                <p className="eyebrow text-gold">Thank you</p>
-                <h2 className="mt-5 text-2xl sm:text-3xl">Your inquiry is ready to send</h2>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  We've prepared your details, {submitted.name}. This form doesn't send email yet — tap below to
-                  send the same message to us on WhatsApp so nothing gets lost.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <ActionButton
-                    href={submittedLink ?? undefined}
-                    to={submittedLink ? undefined : "/"}
-                    variant="solid"
-                    size="lg"
-                  >
-                    {submittedLink ? "Send on WhatsApp" : "Back Home"}
-                  </ActionButton>
-                  <button
-                    type="button"
-                    onClick={() => setSubmitted(null)}
-                    className="inline-flex items-center justify-center rounded-sm frame-gold px-8 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-secondary"
-                  >
-                    Send another
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <form
-                noValidate
-                onSubmit={handleSubmit((values) => setSubmitted(values))}
-                className="frame-gold bg-card p-8 lg:p-10"
-              >
-                <h2 className="text-2xl sm:text-3xl">Send An Inquiry</h2>
-                <span className="rule-gold mt-6" />
-
-                <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className={labelClass} htmlFor="name">
-                      Name
-                    </label>
-                    <input id="name" className={fieldClass} placeholder="Your name" {...register("name")} />
-                    <FieldError message={errors.name?.message} />
-                  </div>
-                  <div>
-                    <label className={labelClass} htmlFor="phone">
-                      Phone
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      className={fieldClass}
-                      placeholder="Contact number"
-                      {...register("phone")}
-                    />
-                    <FieldError message={errors.phone?.message} />
-                  </div>
-                  <div>
-                    <label className={labelClass} htmlFor="email">
-                      Email <span className="normal-case tracking-normal">(optional)</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      className={fieldClass}
-                      placeholder="you@example.com"
-                      {...register("email")}
-                    />
-                    <FieldError message={errors.email?.message} />
-                  </div>
-                  <div>
-                    <label className={labelClass} htmlFor="occasion">
-                      Occasion
-                    </label>
-                    <input
-                      id="occasion"
-                      className={fieldClass}
-                      placeholder="Birthday, anniversary…"
-                      {...register("occasion")}
-                    />
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className={labelClass} htmlFor="service">
-                      Interested Service
-                    </label>
-                    <select id="service" className={fieldClass} defaultValue="" {...register("service")}>
-                      <option value="">Select a service</option>
-                      {services.map((service) => (
-                        <option key={service.slug} value={service.title}>
-                          {service.title}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className={labelClass} htmlFor="message">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className={fieldClass}
-                      placeholder="Tell us what you're imagining…"
-                      {...register("message")}
-                    />
-                    <FieldError message={errors.message?.message} />
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center rounded-sm bg-primary px-8 py-4 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-burgundy-deep"
-                  >
-                    Send Inquiry
-                  </button>
-                  <WhatsAppButton message={messages.general} label="Chat on WhatsApp" variant="outline" size="lg" />
-                </div>
-                <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-                  This form prepares your inquiry in the browser and hands it to WhatsApp — no email is sent
-                  yet, so nothing is stored.
-                </p>
-              </form>
-            )}
+          <div className="mt-12 flex justify-center">
+            <WhatsAppButton message={messages.general} label="Message Us Now" variant="solid" size="lg" />
           </div>
         </div>
       </section>

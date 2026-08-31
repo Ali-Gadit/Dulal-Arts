@@ -22,8 +22,10 @@ export type SiteSettings = {
   phone: string | null;
   email: string | null;
   instagramUrl: string | null;
+  facebookUrl: string | null;
   address: string | null;
   logo: ImageAsset;
+  navigation: { label: string; to: string }[];
 };
 
 export type Category = {
@@ -38,12 +40,12 @@ export type Category = {
 export type Service = {
   title: string;
   slug: string;
+  category?: string;
   shortDescription: string;
   description: string;
   image: ImageAsset | null;
   featured: boolean;
   order: number;
-  relatedProducts: string[];
 };
 
 export type Product = {
@@ -87,9 +89,7 @@ export type GalleryProject = {
 export type Testimonial = {
   customerName: string;
   review: string;
-  occasion: string | null;
-  image: ImageAsset | null;
-  featured: boolean;
+  stars: number;
   order: number;
 };
 

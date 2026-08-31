@@ -23,11 +23,30 @@ export const Route = createFileRoute("/services/")({
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),
+  loader: async () => {
+    const { getServices } = await import('@/content/sanityQueries');
+    return { services: await getServices() };
+  },
   component: ServicesPage,
 });
 
 function ServicesPage() {
-  const services = getServices();
+  const { services } = Route.useLoaderData();
+
+  const grouped = services.reduce((acc, service) => {
+    const cat = service.category || "Other";
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(service);
+    return acc;
+  }, {} as Record<string, typeof services>);
+
+  const groupOrder = [
+    "DIY kits",
+    "Pretty Little Decor",
+    "Gifts",
+    "Wrapping & Packaging Services",
+    "Other"
+  ];
 
   return (
     <>
@@ -38,13 +57,43 @@ function ServicesPage() {
         crumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
       />
 
-      <section className="bg-background py-20 lg:py-28">
+      <section className="bg-background py-12 lg:py-16">
         <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-          <ul>
-            {services.map((service, i) => (
-              <ServiceCard key={service.slug} service={service} index={i} />
-            ))}
-          </ul>
+          
+          {/* Sub-navigation jump links */}
+          <div className="mb-16 flex flex-wrap items-center gap-3">
+            {groupOrder.map((group) => {
+              if (!grouped[group] || grouped[group].length === 0) return null;
+              const groupId = group.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              return (
+                <a 
+                  key={group} 
+                  href={`#${groupId}`}
+                  className="rounded-full border border-gold/30 px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-gold/10 hover:text-primary"
+                >
+                  {group}
+                </a>
+              );
+            })}
+          </div>
+
+          {groupOrder.map((group) => {
+            const groupServices = grouped[group];
+            if (!groupServices || groupServices.length === 0) return null;
+            const groupId = group.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return (
+              <div key={group} id={groupId} className="mb-24 scroll-mt-32 last:mb-0">
+                <div className="mb-12 border-b border-gold/30 pb-4">
+                  <h2 className="font-display text-4xl text-primary">{group}</h2>
+                </div>
+                <ul>
+                  {groupServices.map((service, i) => (
+                    <ServiceCard key={service.slug} service={service} index={i} />
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </section>
 

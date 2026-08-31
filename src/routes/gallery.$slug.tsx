@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { getGalleryProjectBySlug, getGalleryProjects } from "@/content/queries";
+// handled in loader
 import { messages } from "@/lib/whatsapp";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
@@ -8,10 +8,13 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/gallery/$slug")({
-  loader: ({ params }) => {
-    const project = getGalleryProjectBySlug(params.slug);
+  loader: async ({ params }) => {
+    const { getGalleryProjectBySlug, getGalleryProjects } = await import('@/content/sanityQueries');
+    const project = await getGalleryProjectBySlug(params.slug);
     if (!project) throw notFound();
-    return { project };
+    const allProjects = await getGalleryProjects();
+    const others = allProjects.filter((p) => p.slug !== project.slug).slice(0, 6);
+    return { project, others };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
@@ -35,10 +38,7 @@ export const Route = createFileRoute("/gallery/$slug")({
 });
 
 function GalleryProjectPage() {
-  const { project } = Route.useLoaderData();
-  const others = getGalleryProjects()
-    .filter((p) => p.slug !== project.slug)
-    .slice(0, 6);
+  const { project, others } = Route.useLoaderData();
 
   return (
     <>

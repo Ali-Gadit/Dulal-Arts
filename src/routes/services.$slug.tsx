@@ -1,17 +1,19 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { getProductBySlug, getServiceBySlug, getServices } from "@/content/queries";
+import { getServiceBySlug, getServices } from "@/content/sanityQueries";
 import { messages } from "@/lib/whatsapp";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
-import { ProductCard, ServiceCard } from "@/components/cards";
+import { ServiceCard } from "@/components/cards";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/services/$slug")({
-  loader: ({ params }) => {
-    const service = getServiceBySlug(params.slug);
+  loader: async ({ params }) => {
+    const service = await getServiceBySlug(params.slug);
     if (!service) throw notFound();
-    return { service };
+    const allServices = await getServices();
+    
+    return { service, allServices };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
@@ -34,11 +36,8 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetailPage() {
-  const { service } = Route.useLoaderData();
-  const related = service.relatedProducts
-    .map((slug) => getProductBySlug(slug))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p));
-  const others = getServices()
+  const { service, allServices } = Route.useLoaderData();
+  const others = allServices
     .filter((s) => s.slug !== service.slug)
     .slice(0, 3);
 
@@ -61,9 +60,9 @@ function ServiceDetailPage() {
             <ImageReveal
               src={service.image.src}
               alt={service.image.alt}
-              className="aspect-4/5 overflow-hidden lg:col-span-7"
-              width={1200}
-              height={1504}
+              className="aspect-4/3 overflow-hidden lg:col-span-7"
+              width={1600}
+              height={1200}
             />
           ) : null}
           <div className="lg:col-span-5">
@@ -88,21 +87,6 @@ function ServiceDetailPage() {
           </div>
         </div>
       </section>
-
-      {related.length > 0 ? (
-        <section className="border-y border-border bg-cream py-20 lg:py-28">
-          <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-            <Reveal>
-              <h2 className="text-3xl sm:text-4xl">Pieces From This Service</h2>
-            </Reveal>
-            <div className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((product, i) => (
-                <ProductCard key={product.slug} product={product} delay={i * 0.05} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[86rem] px-5 sm:px-8">

@@ -8,13 +8,14 @@ import { siteSettings } from "@/content/data";
 export function whatsappLink(message: string): string | null {
   const number = siteSettings.whatsappNumber?.replace(/[^\d]/g, "");
   if (!number) return null;
+  if (!message) return `https://wa.me/${number}`;
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 export const whatsappConfigured = Boolean(siteSettings.whatsappNumber);
 
 export const messages = {
-  general: `Hi ${siteSettings.brandName}! I'd like to customize something with you. Could you please share the available options?`,
+  general: "",
   product: (name: string) =>
     `Hi ${siteSettings.brandName}! I'm interested in ${name}. Can you please share the price and customization options?`,
   collection: (name: string) =>

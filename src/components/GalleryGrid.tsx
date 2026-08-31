@@ -74,20 +74,11 @@ export function GalleryGrid({
                 />
                 <span className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-700 group-hover:bg-ink/25" />
               </button>
-              <figcaption className="mt-4 flex items-baseline justify-between gap-4">
-                <div>
-                  <h3 className="text-lg leading-snug">{project.title}</h3>
-                  <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-gold">
-                    {project.occasion ?? project.category}
-                  </p>
-                </div>
-                <Link
-                  to="/gallery/$slug"
-                  params={{ slug: project.slug }}
-                  className="link-underline shrink-0 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-primary"
-                >
-                  View
-                </Link>
+              <figcaption className="mt-4">
+                <h3 className="text-lg leading-snug">{project.title}</h3>
+                <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-gold">
+                  {project.occasion ?? project.category}
+                </p>
               </figcaption>
             </motion.figure>
           ))}

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle, Facebook } from "lucide-react";
 import { siteSettings } from "@/content/data";
 import { messages, whatsappLink } from "@/lib/whatsapp";
 import { ActionButton } from "./WhatsAppButton";
@@ -8,7 +8,6 @@ const nav = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Collections", to: "/collections" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ];
@@ -64,6 +63,17 @@ export function Footer() {
                 Customize With Us
               </ActionButton>
               <div className="flex items-center gap-4 pt-2">
+                {siteSettings.facebookUrl ? (
+                  <a
+                    href={siteSettings.facebookUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label="Dulal Arts on Facebook"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-sm frame-gold text-gold transition-colors hover:bg-gold hover:text-ink"
+                  >
+                    <Facebook className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                ) : null}
                 {siteSettings.instagramUrl ? (
                   <a
                     href={siteSettings.instagramUrl}

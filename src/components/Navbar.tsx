@@ -10,7 +10,6 @@ const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Collections", to: "/collections" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ];
@@ -51,13 +50,13 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-[4.5rem] max-w-[86rem] items-center justify-between gap-6 px-5 sm:px-8 lg:h-20">
-          <Link to="/" className="flex items-center gap-3" aria-label={`${siteSettings.brandName} home`}>
+          <Link to="/" className="flex items-center gap-3 shrink-0" aria-label={`${siteSettings.brandName} home`}>
             <img
               src={siteSettings.logo.src}
               alt={siteSettings.logo.alt}
               width={48}
               height={48}
-              className="h-11 w-11 lg:h-12 lg:w-12"
+              className="h-11 w-11 shrink-0 object-contain lg:h-12 lg:w-12"
             />
             <span className="hidden leading-none sm:block">
               <span
@@ -130,7 +129,7 @@ export function Navbar() {
                 alt={siteSettings.logo.alt}
                 width={44}
                 height={44}
-                className="h-11 w-11"
+                className="h-11 w-11 shrink-0 object-contain"
               />
               <button
                 type="button"

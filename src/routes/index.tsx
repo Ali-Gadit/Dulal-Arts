@@ -1,6 +1,7 @@
+import { useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight, Instagram, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   featuredProjectImage,
   heroImage,
@@ -15,8 +16,6 @@ import {
   getFeaturedProducts,
   getFeaturedServices,
   getGalleryProjects,
-  getProductsByCategory,
-  getTestimonials,
 } from "@/content/queries";
 import { messages } from "@/lib/whatsapp";
 import { AnimatedText, ImageReveal, Reveal } from "@/components/Reveal";
@@ -44,16 +43,33 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
+  loader: async () => {
+    const { getFeaturedServices, getFeaturedCategories, getFeaturedProducts, getGalleryProjects, getFeaturedGalleryProject, getProducts, getTestimonials } = await import('@/content/sanityQueries');
+    const [services, categories, products, projects, feature, allProducts, testimonials] = await Promise.all([
+      getFeaturedServices(),
+      getFeaturedCategories(),
+      getFeaturedProducts(),
+      getGalleryProjects(),
+      getFeaturedGalleryProject(),
+      getProducts(),
+      getTestimonials()
+    ]);
+    return { services, categories: categories.slice(0, 6), products: products.slice(0, 6), projects: projects.slice(0, 6), feature, allProducts, testimonials };
+  },
   component: HomePage,
 });
 
 function HomePage() {
-  const services = getFeaturedServices();
-  const categories = getFeaturedCategories().slice(0, 6);
-  const products = getFeaturedProducts().slice(0, 6);
-  const projects = getGalleryProjects().slice(0, 6);
-  const feature = getFeaturedGalleryProject();
-  const testimonials = getTestimonials();
+  const { services, categories, products, projects, feature, allProducts, testimonials } = Route.useLoaderData();
+  const getProductsByCategory = (slug: string) => allProducts.filter(p => p.category === slug);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = window.innerWidth * 0.8;
+      scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -121,49 +137,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Featured collections */}
-      <section className="bg-background py-24 lg:py-32">
-        <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-          <SectionHeading
-            eyebrow="Collections"
-            title="Our Collections"
-            intro="Explore our work by occasion — every collection can be customized around your idea."
-          />
-          <div className="mt-14 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((category, i) => (
-              <CategoryCard
-                key={category.slug}
-                category={category}
-                itemCount={getProductsByCategory(category.slug).length}
-                delay={i * 0.05}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Featured products */}
-      <section className="border-y border-border bg-cream py-24 lg:py-32">
-        <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-          <SectionHeading
-            eyebrow="Selected Pieces"
-            title="Made By Hand, For One Person"
-            intro="A small selection of what we create. Everything here can be adapted, engraved or rebuilt around your idea."
-          />
-          <div className="mt-14 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, i) => (
-              <ProductCard key={product.slug} product={product} delay={i * 0.05} />
-            ))}
-          </div>
-          <Reveal delay={0.1}>
-            <div className="mt-14">
-              <ActionButton to="/collections" variant="outline" size="md">
-                Browse Collections
-              </ActionButton>
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
       {/* Gallery preview */}
       <section className="bg-background py-24 lg:py-32">
@@ -248,46 +222,96 @@ function HomePage() {
       ) : null}
 
       {/* Why Dulal Arts */}
-      <section className="border-b border-border bg-cream py-24 lg:py-32">
-        <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-          <SectionHeading eyebrow="Why Us" title="Why Choose Dulal Arts?" align="center" />
-          <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-            {whyPoints.map((point, i) => (
-              <Reveal key={point.title} delay={i * 0.06}>
-                <span
-                  aria-hidden="true"
-                  className="flex h-11 w-11 items-center justify-center rounded-full frame-gold font-display text-sm text-gold"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-6 text-xl">{point.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
-              </Reveal>
-            ))}
+        <section className="border-b border-border bg-cream py-24 lg:py-32 overflow-hidden">
+          <div className="mx-auto max-w-[86rem]">
+            <div className="px-5 sm:px-8">
+              <SectionHeading eyebrow="WHY CHOOSE US?" title="Because We Care Your Emotions ❤️" align="center" />
+            </div>
+
+            <div className="relative mt-12 w-full md:mt-16">
+              <button
+                onClick={() => scroll("left")}
+                className="absolute left-1 sm:left-4 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full frame-gold bg-cream text-gold shadow-xl md:hidden"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              
+              <div ref={scrollRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-5 sm:px-8 pb-8 md:grid md:grid-cols-2 md:gap-10 lg:grid-cols-3 xl:grid-cols-4 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                {[...whyPoints, ...whyPoints, ...whyPoints].map((point, i) => (
+                  <Reveal key={`${point.title}-${i}`} delay={(i % 4) * 0.06} className="h-full frame-gold bg-card p-8 rounded-sm w-[85vw] sm:w-[45vw] max-w-full snap-center shrink-0 md:w-auto md:shrink flex flex-col items-center text-center">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-11 w-11 items-center justify-center rounded-full frame-gold bg-cream font-display text-sm text-gold shrink-0"
+                    >
+                      {String((i % whyPoints.length) + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-6 text-xl">{point.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-foreground/80">{point.description}</p>
+                  </Reveal>
+                ))}
+              </div>
+
+              <button
+                onClick={() => scroll("right")}
+                className="absolute right-1 sm:right-4 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full frame-gold bg-cream text-gold shadow-xl md:hidden"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Testimonials — hidden until real reviews exist */}
       {testimonials.length > 0 ? (
-        <section className="bg-background py-24 lg:py-32">
-          <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-            <SectionHeading eyebrow="Testimonials" title="What Our Customers Say" align="center" />
-            <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {testimonials.map((t, i) => (
-                <Reveal key={t.customerName} delay={i * 0.06} className="frame-gold bg-card p-8">
-                  <span aria-hidden="true" className="font-display text-4xl text-gold">
-                    &ldquo;
-                  </span>
-                  <blockquote className="mt-2 text-[0.95rem] leading-relaxed text-foreground">
-                    {t.review}
-                  </blockquote>
-                  <p className="mt-6 text-sm text-foreground">{t.customerName}</p>
-                  {t.occasion ? (
-                    <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-gold">{t.occasion}</p>
-                  ) : null}
-                </Reveal>
-              ))}
+        <section className="bg-background py-24 lg:py-32 overflow-hidden">
+          <div className="mx-auto max-w-[86rem]">
+            <div className="px-5 sm:px-8">
+              <SectionHeading eyebrow="Testimonials" title="What Our Customers Say" align="center" />
+            </div>
+
+            <div className="relative mt-12 w-full md:mt-16">
+              <button
+                onClick={() => {
+                  const el = document.getElementById("test-scroll");
+                  if (el) el.scrollBy({ left: -window.innerWidth * 0.8, behavior: "smooth" });
+                }}
+                className="absolute left-1 sm:left-4 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full frame-gold bg-cream text-gold shadow-xl md:hidden"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              
+              <div id="test-scroll" className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-5 sm:px-8 pb-8 md:grid md:grid-cols-2 md:gap-10 lg:grid-cols-3 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+                  <Reveal key={`${t.customerName}-${i}`} delay={(i % 3) * 0.06} className="h-full frame-gold bg-card p-8 rounded-sm w-[85vw] sm:w-[45vw] max-w-full snap-center shrink-0 md:w-auto md:shrink flex flex-col items-center text-center">
+                    <div className="flex items-center gap-1 mb-4 text-gold shrink-0">
+                      {[...Array(5)].map((_, idx) => (
+                        <Star
+                          key={idx}
+                          className={`h-4 w-4 ${idx < t.stars ? "fill-gold" : "fill-transparent border-gold"}`}
+                        />
+                      ))}
+                    </div>
+                    <blockquote className="mt-2 text-[0.95rem] leading-relaxed text-foreground">
+                      "{t.review}"
+                    </blockquote>
+                    <p className="mt-6 text-sm font-semibold uppercase tracking-wider text-foreground">{t.customerName}</p>
+                  </Reveal>
+                ))}
+              </div>
+
+              <button
+                onClick={() => {
+                  const el = document.getElementById("test-scroll");
+                  if (el) el.scrollBy({ left: window.innerWidth * 0.8, behavior: "smooth" });
+                }}
+                className="absolute right-1 sm:right-4 top-1/2 z-10 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full frame-gold bg-cream text-gold shadow-xl md:hidden"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
             </div>
           </div>
         </section>
@@ -370,6 +394,21 @@ function Hero() {
       />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/25" />
       <GoldParticles />
+
+      {/* Marquee */}
+      <div className="absolute inset-x-0 top-[4.8rem] z-10 flex overflow-hidden whitespace-nowrap border-y border-gold/15 bg-ink/40 py-2.5 backdrop-blur-sm lg:top-[5.4rem]">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
+          className="flex items-center"
+        >
+          {[...Array(8)].map((_, i) => (
+            <span key={i} className="mx-6 text-[0.7rem] uppercase tracking-[0.25em] text-gold/80 sm:mx-10 sm:text-[0.8rem]">
+              Customize your <span className="font-sans font-medium">خوشیاں</span> with us
+            </span>
+          ))}
+        </motion.div>
+      </div>
 
       <div className="relative mx-auto w-full max-w-[86rem] px-5 sm:px-8">
         <motion.img

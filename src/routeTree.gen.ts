@@ -13,13 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as CollectionsIndexRouteImport } from './routes/collections.index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminSplatRouteImport } from './routes/admin/$'
 import { Route as GalleryIndexRouteImport } from './routes/gallery.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
-import { Route as CollectionsSlugIndexRouteImport } from './routes/collections.$slug.index'
-import { Route as CollectionsSlugProductSlugRouteImport } from './routes/collections.$slug.$productSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,9 +40,14 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CollectionsIndexRoute = CollectionsIndexRouteImport.update({
-  id: '/collections/',
-  path: '/collections/',
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSplatRoute = AdminSplatRouteImport.update({
+  id: '/admin/$',
+  path: '/admin/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryIndexRoute = GalleryIndexRouteImport.update({
@@ -66,43 +70,30 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CollectionsSlugIndexRoute = CollectionsSlugIndexRouteImport.update({
-  id: '/collections/$slug/',
-  path: '/collections/$slug/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CollectionsSlugProductSlugRoute =
-  CollectionsSlugProductSlugRouteImport.update({
-    id: '/collections/$slug/$productSlug',
-    path: '/collections/$slug/$productSlug',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/$': typeof AdminSplatRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/collections/': typeof CollectionsIndexRoute
+  '/admin/': typeof AdminIndexRoute
   '/gallery/': typeof GalleryIndexRoute
   '/services/': typeof ServicesIndexRoute
-  '/collections/$slug/$productSlug': typeof CollectionsSlugProductSlugRoute
-  '/collections/$slug/': typeof CollectionsSlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/$': typeof AdminSplatRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/collections': typeof CollectionsIndexRoute
+  '/admin': typeof AdminIndexRoute
   '/gallery': typeof GalleryIndexRoute
   '/services': typeof ServicesIndexRoute
-  '/collections/$slug/$productSlug': typeof CollectionsSlugProductSlugRoute
-  '/collections/$slug': typeof CollectionsSlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -110,13 +101,12 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/$': typeof AdminSplatRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/collections/': typeof CollectionsIndexRoute
+  '/admin/': typeof AdminIndexRoute
   '/gallery/': typeof GalleryIndexRoute
   '/services/': typeof ServicesIndexRoute
-  '/collections/$slug/$productSlug': typeof CollectionsSlugProductSlugRoute
-  '/collections/$slug/': typeof CollectionsSlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -125,39 +115,36 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/sitemap.xml'
+    | '/admin/$'
     | '/gallery/$slug'
     | '/services/$slug'
-    | '/collections/'
+    | '/admin/'
     | '/gallery/'
     | '/services/'
-    | '/collections/$slug/$productSlug'
-    | '/collections/$slug/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
     | '/sitemap.xml'
+    | '/admin/$'
     | '/gallery/$slug'
     | '/services/$slug'
-    | '/collections'
+    | '/admin'
     | '/gallery'
     | '/services'
-    | '/collections/$slug/$productSlug'
-    | '/collections/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/sitemap.xml'
+    | '/admin/$'
     | '/gallery/$slug'
     | '/services/$slug'
-    | '/collections/'
+    | '/admin/'
     | '/gallery/'
     | '/services/'
-    | '/collections/$slug/$productSlug'
-    | '/collections/$slug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -165,13 +152,12 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminSplatRoute: typeof AdminSplatRoute
   GallerySlugRoute: typeof GallerySlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
-  CollectionsIndexRoute: typeof CollectionsIndexRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   GalleryIndexRoute: typeof GalleryIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
-  CollectionsSlugProductSlugRoute: typeof CollectionsSlugProductSlugRoute
-  CollectionsSlugIndexRoute: typeof CollectionsSlugIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -204,11 +190,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/collections/': {
-      id: '/collections/'
-      path: '/collections'
-      fullPath: '/collections/'
-      preLoaderRoute: typeof CollectionsIndexRouteImport
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/$': {
+      id: '/admin/$'
+      path: '/admin/$'
+      fullPath: '/admin/$'
+      preLoaderRoute: typeof AdminSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery/': {
@@ -239,20 +232,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/collections/$slug/': {
-      id: '/collections/$slug/'
-      path: '/collections/$slug'
-      fullPath: '/collections/$slug/'
-      preLoaderRoute: typeof CollectionsSlugIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/collections/$slug/$productSlug': {
-      id: '/collections/$slug/$productSlug'
-      path: '/collections/$slug/$productSlug'
-      fullPath: '/collections/$slug/$productSlug'
-      preLoaderRoute: typeof CollectionsSlugProductSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -261,13 +240,12 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminSplatRoute: AdminSplatRoute,
   GallerySlugRoute: GallerySlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
-  CollectionsIndexRoute: CollectionsIndexRoute,
+  AdminIndexRoute: AdminIndexRoute,
   GalleryIndexRoute: GalleryIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
-  CollectionsSlugProductSlugRoute: CollectionsSlugProductSlugRoute,
-  CollectionsSlugIndexRoute: CollectionsSlugIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

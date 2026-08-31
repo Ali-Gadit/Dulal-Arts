@@ -42,10 +42,11 @@ export const siteSettings: SiteSettings = {
   brandName: "Dulal Arts",
   brandSuffix: "Gifts & Decor",
   tagline: "Where Every Idea Is As Unique As You Are",
-  whatsappNumber: null,
+  whatsappNumber: "+92 312 2496325",
   phone: null,
-  email: null,
+  email: "akramdua96@gmail.com",
   instagramUrl: "https://www.instagram.com/dulal.arts/",
+  facebookUrl: "https://www.facebook.com/CreationsByDua",
   address: null,
   logo: { src: logo, alt: "Dulal Arts — Gifts & Decor", width: 1024, height: 1024 },
 };
@@ -516,24 +517,32 @@ export const testimonials: Testimonial[] = [];
 
 export const whyPoints: WhyPoint[] = [
   {
-    title: "Personalized",
-    description: "Every creation can be tailored to the occasion and the person receiving it.",
+    title: "We Care Your Emotions",
+    description: "Every celebration is special for you, that's why we treat it with love and care.",
   },
   {
-    title: "Thoughtfully Designed",
-    description: "We focus on the details that make a gift feel considered rather than bought.",
+    title: "Customized Just For You",
+    description: "We listen to your ideas and create personalized themes that reflect your style.",
   },
   {
-    title: "Creative",
-    description: "From a single gift to a full setup, every idea is approached as its own brief.",
+    title: "Creative & Unique Designs",
+    description: "From Pinterest vibes to elegant setups, we bring creativity in every detail.",
   },
   {
-    title: "Made For Your Moment",
-    description: "Birthdays, anniversaries, weddings, celebrations and everything in between.",
+    title: "Quality With Perfection",
+    description: "We never compromise on quality. We use the best materials and ensure a perfect finish.",
   },
   {
-    title: "Customer Focused",
-    description: "We work closely with you, from first idea to the finished, wrapped result.",
+    title: "Affordable & Transparent",
+    description: "Beautiful decor and gifts that fit your budget with transparent pricing.",
+  },
+  {
+    title: "On Time, Every Time",
+    description: "We value your time and always deliver on our promises.",
+  },
+  {
+    title: "Complete Solution",
+    description: "From decor to gifts to wrapping, we provide everything under one roof so you can relax and enjoy.",
   },
 ];
 
@@ -544,6 +553,14 @@ export const instagramFeed = [
   { src: serviceCustomGifts, alt: "Engraved keepsake gift set" },
   { src: galleryEngagement, alt: "Engagement ring platter in velvet and gold" },
   { src: serviceHampers, alt: "Curated gift hamper with gold bow" },
+];
+
+export const navigation = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const galleryFilters: { label: string; value: "all" | GalleryProject["category"] }[] = [
