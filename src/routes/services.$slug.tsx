@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { getServiceBySlug, getServices } from "@/content/sanityQueries";
+import { getServiceBySlug, getServices } from "@/content/queries";
 import { messages } from "@/lib/whatsapp";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
