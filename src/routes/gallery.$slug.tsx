@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { getGalleryProjectBySlug, getGalleryProjects } from "@/content/queries";
+// handled in loader
 import { messages } from "@/lib/whatsapp";
 import { ImageReveal, Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
@@ -9,6 +9,7 @@ import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/gallery/$slug")({
   loader: async ({ params }) => {
+    const { getGalleryProjectBySlug, getGalleryProjects } = await import('@/content/sanityQueries');
     const project = await getGalleryProjectBySlug(params.slug);
     if (!project) throw notFound();
     const allProjects = await getGalleryProjects();

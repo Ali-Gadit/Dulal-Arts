@@ -24,6 +24,7 @@ export const Route = createFileRoute("/services/")({
     links: [{ rel: "canonical", href: "/services" }],
   }),
   loader: async () => {
+    const { getServices } = await import('@/content/sanityQueries');
     return { services: await getServices() };
   },
   component: ServicesPage,

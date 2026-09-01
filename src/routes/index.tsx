@@ -44,9 +44,7 @@ export const Route = createFileRoute("/")({
     links: [{ rel: "canonical", href: "/" }],
   }),
   loader: async () => {
-    // Dynamically importing from queries to avoid loading all data upfront if not needed,
-    // but the functions are already imported at the top, so we can just use them.
-    const { getProducts, getTestimonials } = await import('@/content/queries');
+    const { getFeaturedServices, getFeaturedCategories, getFeaturedProducts, getGalleryProjects, getFeaturedGalleryProject, getProducts, getTestimonials } = await import('@/content/sanityQueries');
     const [services, categories, products, projects, feature, allProducts, testimonials] = await Promise.all([
       getFeaturedServices(),
       getFeaturedCategories(),
