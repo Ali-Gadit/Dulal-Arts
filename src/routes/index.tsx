@@ -240,13 +240,13 @@ function HomePage() {
               </button>
               
               <div ref={scrollRef} className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-5 sm:px-8 pb-8 md:grid md:grid-cols-2 md:gap-10 lg:grid-cols-3 xl:grid-cols-4 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                {whyPoints.map((point, i) => (
-                  <Reveal key={`${point.title}-${i}`} delay={(i % 4) * 0.06} className="h-full frame-gold bg-card p-8 rounded-sm w-[85vw] sm:w-[45vw] max-w-full snap-center shrink-0 md:w-auto md:shrink flex flex-col items-center text-center">
+                {[...whyPoints, ...whyPoints, ...whyPoints].map((point, i) => (
+                  <Reveal key={`${point.title}-${i}`} delay={(i % 4) * 0.06} className={`h-full frame-gold bg-card p-8 rounded-sm w-[85vw] sm:w-[45vw] max-w-full snap-center shrink-0 md:w-auto md:shrink flex flex-col items-center text-center ${i >= whyPoints.length ? "md:hidden" : ""}`}>
                     <span
                       aria-hidden="true"
                       className="flex h-11 w-11 items-center justify-center rounded-full frame-gold bg-cream font-display text-sm text-gold shrink-0"
                     >
-                      {String(i + 1).padStart(2, "0")}
+                      {String((i % whyPoints.length) + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-6 text-xl">{point.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-foreground/80">{point.description}</p>
@@ -286,8 +286,8 @@ function HomePage() {
               </button>
               
               <div id="test-scroll" className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-5 sm:px-8 pb-8 md:grid md:grid-cols-2 md:gap-10 lg:grid-cols-3 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                {testimonials.map((t, i) => (
-                  <Reveal key={`${t.customerName}-${i}`} delay={(i % 3) * 0.06} className="h-full frame-gold bg-card p-8 rounded-sm w-[85vw] sm:w-[45vw] max-w-full snap-center shrink-0 md:w-auto md:shrink flex flex-col items-center text-center">
+                {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+                  <Reveal key={`${t.customerName}-${i}`} delay={(i % 3) * 0.06} className={`h-full frame-gold bg-card p-8 rounded-sm w-[85vw] sm:w-[45vw] max-w-full snap-center shrink-0 md:w-auto md:shrink flex flex-col items-center text-center ${i >= testimonials.length ? "md:hidden" : ""}`}>
                     <div className="flex items-center gap-1 mb-4 text-gold shrink-0">
                       {[...Array(5)].map((_, idx) => (
                         <Star
