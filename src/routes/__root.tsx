@@ -88,7 +88,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: "Dulal Arts — Gifts & Decor" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://dulalarts.store/" },
+      { property: "og:image", content: "https://dulalarts.store/logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://dulalarts.store/logo.png" },
       { name: "theme-color", content: "#0B0B0B" },
     ],
     links: [
@@ -100,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
     ],
     scripts: [
       {
@@ -108,6 +112,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Dulal Arts",
+          url: "https://dulalarts.store/",
+          logo: "https://dulalarts.store/logo.png",
           alternateName: "Dulal Arts — Gifts & Decor",
           description:
             "Customized gifts, curated hampers and event decoration for birthdays, weddings and celebrations.",
