@@ -45,7 +45,8 @@ type FormValues = z.infer<typeof schema>;
 
 const fieldClass =
   "mt-2 w-full rounded-sm border border-input bg-card px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-gold focus:outline-none";
-const labelClass = "block text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground";
+const labelClass =
+  "block text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground";
 
 function ContactPage() {
   const services = getServices();
@@ -146,7 +147,12 @@ function ContactPage() {
           </ul>
 
           <div className="mt-12 flex justify-center">
-            <WhatsAppButton message={messages.general} label="Message Us Now" variant="solid" size="lg" />
+            <WhatsAppButton
+              message={messages.general}
+              label="Message Us Now"
+              variant="solid"
+              size="lg"
+            />
           </div>
         </div>
       </section>

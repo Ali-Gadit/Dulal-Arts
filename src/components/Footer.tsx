@@ -30,7 +30,9 @@ export function Footer() {
                 className="h-16 w-16"
               />
               <span>
-                <span className="block font-display text-2xl tracking-wide">{siteSettings.brandName}</span>
+                <span className="block font-display text-2xl tracking-wide">
+                  {siteSettings.brandName}
+                </span>
                 <span className="eyebrow mt-1 block text-gold">{siteSettings.brandSuffix}</span>
               </span>
             </div>
@@ -59,7 +61,12 @@ export function Footer() {
           <div>
             <p className="eyebrow text-gold">Have an idea? Let's create it.</p>
             <div className="mt-6 flex flex-col items-start gap-4">
-              <ActionButton href={wa ?? undefined} to={wa ? undefined : "/contact"} variant="gold" size="md">
+              <ActionButton
+                href={wa ?? undefined}
+                to={wa ? undefined : "/contact"}
+                variant="gold"
+                size="md"
+              >
                 Customize With Us
               </ActionButton>
               <div className="flex items-center gap-4 pt-2">

@@ -24,13 +24,17 @@ export function CTASection({
           <p className="eyebrow text-gold">{eyebrow}</p>
         </Reveal>
         <Reveal delay={0.06}>
-          <h2 className="mt-6 text-4xl leading-[1.05] text-balance-tight sm:text-5xl lg:text-6xl">{title}</h2>
+          <h2 className="mt-6 text-4xl leading-[1.05] text-balance-tight sm:text-5xl lg:text-6xl">
+            {title}
+          </h2>
         </Reveal>
         <Reveal delay={0.12}>
           <span className="rule-gold mx-auto mt-8" />
         </Reveal>
         <Reveal delay={0.16}>
-          <p className="mx-auto mt-8 max-w-xl text-[0.975rem] leading-relaxed text-ink-foreground/70">{text}</p>
+          <p className="mx-auto mt-8 max-w-xl text-[0.975rem] leading-relaxed text-ink-foreground/70">
+            {text}
+          </p>
         </Reveal>
         <Reveal delay={0.22}>
           <div className="mt-10 flex flex-wrap justify-center gap-3">

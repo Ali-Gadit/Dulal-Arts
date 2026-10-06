@@ -1,24 +1,24 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Studio } from 'sanity'
-import { useEffect, useState } from 'react'
-import config from '@/sanity/sanity.config'
+import { createFileRoute } from "@tanstack/react-router";
+import { Studio } from "sanity";
+import { useEffect, useState } from "react";
+import config from "@/sanity/sanity.config";
 
-export const Route = createFileRoute('/admin/')({
+export const Route = createFileRoute("/admin/")({
   component: AdminPage,
-})
+});
 
 function AdminPage() {
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    setIsMounted(true);
+  }, []);
 
-  if (!isMounted) return null
+  if (!isMounted) return null;
 
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div style={{ height: "100vh", width: "100vw" }}>
       <Studio config={config} />
     </div>
-  )
+  );
 }

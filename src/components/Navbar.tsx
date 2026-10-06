@@ -50,7 +50,11 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-[4.5rem] max-w-[86rem] items-center justify-between gap-6 px-5 sm:px-8 lg:h-20">
-          <Link to="/" className="flex items-center gap-3 shrink-0" aria-label={`${siteSettings.brandName} home`}>
+          <Link
+            to="/"
+            className="flex items-center gap-3 shrink-0"
+            aria-label={`${siteSettings.brandName} home`}
+          >
             <img
               src={siteSettings.logo.src}
               alt={siteSettings.logo.alt}
@@ -66,7 +70,9 @@ export function Navbar() {
               >
                 {siteSettings.brandName}
               </span>
-              <span className={`eyebrow mt-1 block text-[0.55rem] ${solid ? "text-gold" : "text-gold-soft"}`}>
+              <span
+                className={`eyebrow mt-1 block text-[0.55rem] ${solid ? "text-gold" : "text-gold-soft"}`}
+              >
                 {siteSettings.brandSuffix}
               </span>
             </span>
@@ -79,7 +85,9 @@ export function Navbar() {
                 to={link.to}
                 activeOptions={{ exact: link.to === "/" }}
                 className={`link-underline text-[0.7rem] font-semibold uppercase tracking-[0.2em] transition-colors ${
-                  solid ? "text-foreground/75 hover:text-primary" : "text-ink-foreground/85 hover:text-gold"
+                  solid
+                    ? "text-foreground/75 hover:text-primary"
+                    : "text-ink-foreground/85 hover:text-gold"
                 }`}
                 activeProps={{ className: solid ? "text-primary" : "text-gold" }}
               >
@@ -162,7 +170,12 @@ export function Navbar() {
                 ))}
               </ul>
               <div className="mt-10">
-                <WhatsAppButton message={messages.general} label="Customize With Us" variant="gold" size="md" />
+                <WhatsAppButton
+                  message={messages.general}
+                  label="Customize With Us"
+                  variant="gold"
+                  size="md"
+                />
               </div>
             </nav>
           </motion.div>

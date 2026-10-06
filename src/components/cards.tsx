@@ -85,7 +85,9 @@ export function CategoryCard({
               {itemCount} {itemCount === 1 ? "item" : "items"}
             </span>
           </div>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{category.description}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            {category.description}
+          </p>
           <span className="mt-4 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary">
             Explore
             <ArrowRight
@@ -133,7 +135,9 @@ export function ProductCard({
             {product.category.replace(/-/g, " ")}
           </p>
           <h3 className="mt-2 text-lg leading-snug">{product.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.shortDescription}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            {product.shortDescription}
+          </p>
           {product.showPrice && product.price ? (
             <p className="mt-3 text-sm text-foreground">{product.price}</p>
           ) : null}

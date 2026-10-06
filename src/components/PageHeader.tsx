@@ -37,7 +37,9 @@ export function PageHeader({
         </Reveal>
         {intro ? (
           <Reveal delay={0.2}>
-            <p className="mt-8 max-w-2xl text-[0.975rem] leading-relaxed text-muted-foreground">{intro}</p>
+            <p className="mt-8 max-w-2xl text-[0.975rem] leading-relaxed text-muted-foreground">
+              {intro}
+            </p>
           </Reveal>
         ) : null}
         {children}

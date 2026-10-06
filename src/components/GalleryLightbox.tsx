@@ -23,7 +23,8 @@ export function GalleryLightbox({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowRight") onChange(((index as number) + 1) % projects.length);
-      if (e.key === "ArrowLeft") onChange(((index as number) - 1 + projects.length) % projects.length);
+      if (e.key === "ArrowLeft")
+        onChange(((index as number) - 1 + projects.length) % projects.length);
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -110,7 +111,9 @@ export function GalleryLightbox({
             <p className="mt-2 text-[0.62rem] uppercase tracking-[0.22em] text-gold">
               {project.occasion ?? project.category}
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-ink-foreground/70">{project.description}</p>
+            <p className="mt-4 text-sm leading-relaxed text-ink-foreground/70">
+              {project.description}
+            </p>
           </div>
         </motion.div>
       ) : null}

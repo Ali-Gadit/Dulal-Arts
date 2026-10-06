@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   featuredProjectImage,
   siteSettings,
-  storyImage,
+  storyImage as fallbackStoryImage,
   whyPoints,
 } from "@/content/data";
 import { ImageReveal, Reveal } from "@/components/Reveal";
@@ -30,6 +30,11 @@ export const Route = createFileRoute("/about")({
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
+  loader: async () => {
+    const { getHomePageData } = await import("@/content/sanityQueries");
+    const homeData = await getHomePageData();
+    return { homeData };
+  },
   component: AboutPage,
 });
 
@@ -49,6 +54,9 @@ const philosophy = [
 ];
 
 function AboutPage() {
+  const { homeData } = Route.useLoaderData();
+  const currentStoryImage = homeData?.storyImage?.src ? homeData.storyImage : fallbackStoryImage;
+
   return (
     <>
       <PageHeader
@@ -68,22 +76,22 @@ function AboutPage() {
             >
               <Reveal delay={0.22}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-                  What began as personal, handmade gifting grew into a studio for customized gifts, curated
-                  hampers and full celebration decor. The approach has not changed: understand the moment
-                  first, then design for it.
+                  What began as personal, handmade gifting grew into a studio for customized gifts,
+                  curated hampers and full celebration decor. The approach has not changed:
+                  understand the moment first, then design for it.
                 </p>
               </Reveal>
               <Reveal delay={0.28}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-                  We take on birthdays, anniversaries, weddings, baby celebrations and corporate gifting — from
-                  a single engraved keepsake to a styled room.
+                  We take on birthdays, anniversaries, weddings, baby celebrations and corporate
+                  gifting — from a single engraved keepsake to a styled room.
                 </p>
               </Reveal>
             </SectionHeading>
           </div>
           <ImageReveal
-            src={storyImage.src}
-            alt={storyImage.alt}
+            src={currentStoryImage.src}
+            alt={currentStoryImage.alt}
             className="aspect-4/5 overflow-hidden"
             width={1200}
             height={1504}
@@ -102,7 +110,9 @@ function AboutPage() {
           <div className="mt-16 grid gap-10 lg:grid-cols-3">
             {philosophy.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.07} className="frame-gold bg-card p-8 lg:p-10">
-                <span className="font-display text-sm text-gold">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-display text-sm text-gold">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <h3 className="mt-4 text-xl">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
               </Reveal>
@@ -122,17 +132,38 @@ function AboutPage() {
           </div>
           <ol className="lg:col-span-7">
             {[
-              { step: "Tell us the idea", body: "Share the occasion, the person and any references you love." },
-              { step: "We design it", body: "We propose a concept, palette, materials and personalization options." },
-              { step: "You approve", body: "Adjust anything — wording, colours, contents or scale." },
-              { step: "We make and deliver", body: "Handmade, wrapped and presented, ready for the moment." },
+              {
+                step: "Tell us the idea",
+                body: "Share the occasion, the person and any references you love.",
+              },
+              {
+                step: "We design it",
+                body: "We propose a concept, palette, materials and personalization options.",
+              },
+              {
+                step: "You approve",
+                body: "Adjust anything — wording, colours, contents or scale.",
+              },
+              {
+                step: "We make and deliver",
+                body: "Handmade, wrapped and presented, ready for the moment.",
+              },
             ].map((item, i) => (
-              <Reveal as="li" key={item.step} delay={i * 0.06} className="border-t border-border py-7">
+              <Reveal
+                as="li"
+                key={item.step}
+                delay={i * 0.06}
+                className="border-t border-border py-7"
+              >
                 <div className="flex gap-6">
-                  <span className="font-display text-sm text-gold">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-display text-sm text-gold">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div>
                     <h3 className="text-xl">{item.step}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.body}
+                    </p>
                   </div>
                 </div>
               </Reveal>
@@ -143,7 +174,11 @@ function AboutPage() {
 
       <section className="border-t border-border bg-cream py-24 lg:py-32">
         <div className="mx-auto max-w-[86rem] px-5 sm:px-8">
-          <SectionHeading eyebrow="What Makes Us Different" title="Why Choose Dulal Arts?" align="center" />
+          <SectionHeading
+            eyebrow="What Makes Us Different"
+            title="Why Choose Dulal Arts?"
+            align="center"
+          />
           <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
             {whyPoints.map((point, i) => (
               <Reveal key={point.title} delay={i * 0.06}>
@@ -154,7 +189,9 @@ function AboutPage() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-6 text-xl">{point.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{point.description}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {point.description}
+                </p>
               </Reveal>
             ))}
           </div>

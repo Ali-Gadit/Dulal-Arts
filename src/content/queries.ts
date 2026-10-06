@@ -1,10 +1,4 @@
-import {
-  categories,
-  galleryProjects,
-  products,
-  services,
-  testimonials,
-} from "./data";
+import { categories, galleryProjects, products, services, testimonials } from "./data";
 import type { Category, GalleryProject, Product, Service, Testimonial } from "./types";
 
 const byOrder = <T extends { order: number }>(a: T, b: T) => a.order - b.order;

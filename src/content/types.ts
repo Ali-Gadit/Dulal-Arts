@@ -66,13 +66,7 @@ export type Product = {
   seoDescription?: string;
 };
 
-export type GalleryCategory =
-  | "gifts"
-  | "birthdays"
-  | "decor"
-  | "hampers"
-  | "events"
-  | "custom";
+export type GalleryCategory = "gifts" | "birthdays" | "decor" | "hampers" | "events" | "custom";
 
 export type GalleryProject = {
   title: string;

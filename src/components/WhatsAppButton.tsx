@@ -11,8 +11,7 @@ const base =
 
 const variants: Record<Variant, string> = {
   solid: "bg-primary text-primary-foreground hover:bg-burgundy-deep",
-  outline:
-    "frame-gold text-foreground hover:bg-secondary",
+  outline: "frame-gold text-foreground hover:bg-secondary",
   gold: "bg-gold text-ink hover:bg-gold-soft",
   ghost: "text-ink-foreground frame-gold hover:bg-ink-foreground/10",
 };

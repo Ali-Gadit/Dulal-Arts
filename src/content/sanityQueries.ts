@@ -1,12 +1,20 @@
-import { client, urlFor } from '@/lib/sanity';
-import type { Category, GalleryProject, Product, Service, SiteSettings, Testimonial, WhyPoint } from './types';
+import { client, urlFor } from "@/lib/sanity";
+import type {
+  Category,
+  GalleryProject,
+  Product,
+  Service,
+  SiteSettings,
+  Testimonial,
+  WhyPoint,
+} from "./types";
 
 // Helper to resolve images
 const resolveImage = (img: any) => {
   if (!img || !img.asset) return null;
   return {
     src: urlFor(img).url(),
-    alt: img.alt || ''
+    alt: img.alt || "",
   };
 };
 
@@ -22,13 +30,15 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     instagramUrl: data.instagramUrl || null,
     facebookUrl: data.facebookUrl || null,
     address: data.address || null,
-    logo: resolveImage(data.logo) || { src: '', alt: '' },
-    navigation: data.navigation || []
+    logo: resolveImage(data.logo) || { src: "", alt: "" },
+    navigation: data.navigation || [],
   };
 }
 
 export async function getHomePageData() {
   const data = await client.fetch(`*[_type == "homePage"][0]`);
+  if (!data) return {};
+
   return {
     heroTitle: data.heroTitle,
     heroSubtitle: data.heroSubtitle,
@@ -37,7 +47,7 @@ export async function getHomePageData() {
     storyText: data.storyText,
     storyImage: resolveImage(data.storyImage),
     featuredProjectImage: resolveImage(data.featuredProjectImage),
-    instagramFeed: (data.instagramFeed || []).map(resolveImage)
+    instagramFeed: (data.instagramFeed || []).map(resolveImage),
   };
 }
 
@@ -49,7 +59,7 @@ export async function getAboutPageData() {
     storyTitle: data.storyTitle,
     storyText: data.storyText || [],
     image1: resolveImage(data.image1),
-    image2: resolveImage(data.image2)
+    image2: resolveImage(data.image2),
   };
 }
 
@@ -64,7 +74,7 @@ const serviceFallbacks = [
   serviceHampers,
   serviceEventDecor,
   serviceBirthday,
-  serviceDecor
+  serviceDecor,
 ];
 
 export async function getServices(): Promise<Service[]> {
@@ -75,9 +85,12 @@ export async function getServices(): Promise<Service[]> {
     category: s.category || "Other",
     shortDescription: s.shortDescription,
     description: s.description,
-    image: resolveImage(s.image) || { src: serviceFallbacks[i % serviceFallbacks.length], alt: s.title },
+    image: resolveImage(s.image) || {
+      src: serviceFallbacks[i % serviceFallbacks.length],
+      alt: s.title,
+    },
     featured: s.featured,
-    order: s.order
+    order: s.order,
   }));
 }
 
@@ -89,7 +102,7 @@ export async function getCategories(): Promise<Category[]> {
     description: c.description,
     coverImage: resolveImage(c.coverImage),
     featured: c.featured,
-    order: c.order
+    order: c.order,
   }));
 }
 
@@ -110,28 +123,28 @@ export async function getProducts(): Promise<Product[]> {
     featured: p.featured,
     order: p.order,
     seoTitle: p.seoTitle,
-    seoDescription: p.seoDescription
+    seoDescription: p.seoDescription,
   }));
 }
 
 export async function getServiceBySlug(slug: string): Promise<Service | undefined> {
   const services = await getServices();
-  return services.find(s => s.slug === slug);
+  return services.find((s) => s.slug === slug);
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category | undefined> {
   const categories = await getCategories();
-  return categories.find(c => c.slug === slug);
+  return categories.find((c) => c.slug === slug);
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
   const products = await getProducts();
-  return products.find(p => p.slug === slug);
+  return products.find((p) => p.slug === slug);
 }
 
 export async function getFeaturedProducts(): Promise<Product[]> {
   const products = await getProducts();
-  return products.filter(p => p.featured);
+  return products.filter((p) => p.featured);
 }
 
 export async function getGalleryProjects(): Promise<GalleryProject[]> {
@@ -145,28 +158,28 @@ export async function getGalleryProjects(): Promise<GalleryProject[]> {
     description: p.description,
     occasion: p.occasion,
     featured: p.featured,
-    order: p.order
+    order: p.order,
   }));
 }
 
 export async function getGalleryProjectBySlug(slug: string): Promise<GalleryProject | undefined> {
   const projects = await getGalleryProjects();
-  return projects.find(p => p.slug === slug);
+  return projects.find((p) => p.slug === slug);
 }
 
 export async function getFeaturedServices(): Promise<Service[]> {
   const services = await getServices();
-  return services.filter(s => s.featured);
+  return services.filter((s) => s.featured);
 }
 
 export async function getFeaturedCategories(): Promise<Category[]> {
   const categories = await getCategories();
-  return categories.filter(c => c.featured);
+  return categories.filter((c) => c.featured);
 }
 
 export async function getFeaturedGalleryProject(): Promise<GalleryProject | undefined> {
   const projects = await getGalleryProjects();
-  return projects.find(p => p.featured);
+  return projects.find((p) => p.featured);
 }
 
 export async function getTestimonials(): Promise<Testimonial[]> {
@@ -175,7 +188,7 @@ export async function getTestimonials(): Promise<Testimonial[]> {
     customerName: t.customerName,
     review: t.review,
     stars: t.stars || 5,
-    order: t.order || 0
+    order: t.order || 0,
   }));
 }
 
@@ -184,6 +197,6 @@ export async function getWhyPoints(): Promise<WhyPoint[]> {
   return data.map((w: any) => ({
     title: w.title,
     description: w.description,
-    order: w.order
+    order: w.order,
   }));
 }

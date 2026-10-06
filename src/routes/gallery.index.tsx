@@ -23,7 +23,7 @@ export const Route = createFileRoute("/gallery/")({
     links: [{ rel: "canonical", href: "/gallery" }],
   }),
   loader: async () => {
-    const { getGalleryProjects } = await import('@/content/sanityQueries');
+    const { getGalleryProjects } = await import("@/content/sanityQueries");
     return { projects: await getGalleryProjects() };
   },
   component: GalleryPage,

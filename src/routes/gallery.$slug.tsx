@@ -9,7 +9,7 @@ import { CTASection } from "@/components/CTASection";
 
 export const Route = createFileRoute("/gallery/$slug")({
   loader: async ({ params }) => {
-    const { getGalleryProjectBySlug, getGalleryProjects } = await import('@/content/sanityQueries');
+    const { getGalleryProjectBySlug, getGalleryProjects } = await import("@/content/sanityQueries");
     const project = await getGalleryProjectBySlug(params.slug);
     if (!project) throw notFound();
     const allProjects = await getGalleryProjects();
@@ -18,7 +18,12 @@ export const Route = createFileRoute("/gallery/$slug")({
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Project unavailable — Dulal Arts" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Project unavailable — Dulal Arts" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const { project } = loaderData;
     const title = `${project.title} — Dulal Arts`;
@@ -54,7 +59,10 @@ function GalleryProjectPage() {
       >
         <Reveal delay={0.26}>
           <div className="mt-10">
-            <WhatsAppButton message={messages.project(project.title)} label="Create Something Similar" />
+            <WhatsAppButton
+              message={messages.project(project.title)}
+              label="Create Something Similar"
+            />
           </div>
         </Reveal>
       </PageHeader>

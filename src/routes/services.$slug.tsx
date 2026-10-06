@@ -12,12 +12,17 @@ export const Route = createFileRoute("/services/$slug")({
     const service = await getServiceBySlug(params.slug);
     if (!service) throw notFound();
     const allServices = await getServices();
-    
+
     return { service, allServices };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Service unavailable — Dulal Arts" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [
+          { title: "Service unavailable — Dulal Arts" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
     }
     const { service } = loaderData;
     const title = `${service.title} — Dulal Arts`;
@@ -37,9 +42,7 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceDetailPage() {
   const { service, allServices } = Route.useLoaderData();
-  const others = allServices
-    .filter((s) => s.slug !== service.slug)
-    .slice(0, 3);
+  const others = allServices.filter((s) => s.slug !== service.slug).slice(0, 3);
 
   return (
     <>
@@ -70,7 +73,9 @@ function ServiceDetailPage() {
               <p className="eyebrow text-primary">The Approach</p>
             </Reveal>
             <Reveal delay={0.06}>
-              <p className="mt-6 font-display text-2xl leading-snug text-foreground">{service.description}</p>
+              <p className="mt-6 font-display text-2xl leading-snug text-foreground">
+                {service.description}
+              </p>
             </Reveal>
             <Reveal delay={0.12}>
               <span className="rule-gold mt-8" />

@@ -56,7 +56,11 @@ export function GalleryGrid({
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 0.6, delay: Math.min(i * 0.04, 0.24), ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.6,
+                delay: Math.min(i * 0.04, 0.24),
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="group break-inside-avoid"
             >
               <button
