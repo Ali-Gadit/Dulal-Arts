@@ -34,4 +34,11 @@ export default {
       of: [{ type: "image" }],
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Home Page Settings",
+      };
+    },
+  },
 };
