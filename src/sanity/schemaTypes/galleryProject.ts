@@ -1,4 +1,4 @@
-export default {
+﻿export default {
   name: "galleryProject",
   title: "Gallery Project",
   type: "document",
@@ -35,6 +35,9 @@ export default {
     { name: "description", title: "Description", type: "text" },
     { name: "occasion", title: "Occasion", type: "string" },
     { name: "featured", title: "Featured", type: "boolean", initialValue: false },
+    { name: "price", title: "Price", type: "string" },
+    { name: "showPrice", title: "Show Price", type: "boolean", hidden: true },
     { name: "order", title: "Order", type: "number" },
   ],
 };
+

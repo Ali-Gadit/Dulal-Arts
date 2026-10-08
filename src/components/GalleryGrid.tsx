@@ -1,9 +1,10 @@
-import { Link } from "@tanstack/react-router";
+﻿import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { galleryFilters } from "@/content/data";
 import type { GalleryProject } from "@/content/types";
 import { GalleryLightbox } from "./GalleryLightbox";
+import { whatsappLink, messages } from "@/lib/whatsapp";
 
 type Filter = (typeof galleryFilters)[number]["value"];
 
@@ -83,6 +84,15 @@ export function GalleryGrid({
                 <p className="mt-1 text-[0.62rem] uppercase tracking-[0.22em] text-gold">
                   {project.occasion ?? project.category}
                 </p>
+              {project.price ? (
+                  <p className="mt-2 text-[0.95rem] font-medium text-foreground">{project.price}</p>
+                ) : (
+                  <p className="mt-2 text-[0.85rem] font-medium text-foreground">
+                    <a href={whatsappLink(messages.project(project.title)) || "/contact"} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors" onClick={(e) => e.stopPropagation()}>
+                      Contact us for price
+                    </a>
+                  </p>
+                )}
               </figcaption>
             </motion.figure>
           ))}
@@ -102,3 +112,6 @@ export function GalleryGrid({
     </div>
   );
 }
+
+
+

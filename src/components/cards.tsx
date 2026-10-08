@@ -1,7 +1,8 @@
-import { Link } from "@tanstack/react-router";
+﻿import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { Category, Product, Service } from "@/content/types";
 import { Reveal } from "./Reveal";
+import { whatsappLink, messages } from "@/lib/whatsapp";
 
 /** Editorial service row: number, image, title, description, explore link. */
 export function ServiceCard({ service, index }: { service: Service; index: number }) {
@@ -39,6 +40,15 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
           <p className="mt-5 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground">
             {service.shortDescription}
           </p>
+          {service.price ? (
+              <p className="mt-3 text-[1.1rem] font-medium text-foreground">{service.price}</p>
+            ) : (
+              <p className="mt-3 text-[0.95rem] font-medium text-foreground">
+                <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(whatsappLink(messages.service(service.title)) || "/contact", "_blank"); }} className="underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors cursor-pointer">
+                  Contact us for price
+                </span>
+              </p>
+            )}
           <span className="mt-6 inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-primary">
             Explore
             <ArrowRight
@@ -138,9 +148,15 @@ export function ProductCard({
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
             {product.shortDescription}
           </p>
-          {product.showPrice && product.price ? (
+          {product.price ? (
             <p className="mt-3 text-sm text-foreground">{product.price}</p>
-          ) : null}
+          ) : (
+            <p className="mt-3 text-sm text-foreground">
+              <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(whatsappLink(messages.product(product.title)) || "/contact", "_blank"); }} className="underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors cursor-pointer">
+                Contact us for price
+              </span>
+            </p>
+          )}
           <span className="mt-4 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary">
             View Details
             <ArrowRight
@@ -153,3 +169,6 @@ export function ProductCard({
     </Reveal>
   );
 }
+
+
+

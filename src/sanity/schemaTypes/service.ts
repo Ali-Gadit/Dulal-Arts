@@ -1,4 +1,4 @@
-export default {
+﻿export default {
   name: "service",
   title: "Service",
   type: "document",
@@ -27,6 +27,9 @@ export default {
       },
     },
     { name: "featured", title: "Featured", type: "boolean", initialValue: false },
+    { name: "price", title: "Price", type: "string" },
+    { name: "showPrice", title: "Show Price", type: "boolean", hidden: true },
     { name: "order", title: "Order", type: "number" },
   ],
 };
+

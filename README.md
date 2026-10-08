@@ -14,13 +14,13 @@ This is **NOT a traditional e-commerce website**.
 
 The primary purpose is:
 
-* Showcase the brand professionally
-* Display products and services
-* Showcase previous work/projects
-* Allow visitors to explore different categories
-* Generate inquiries
-* Let customers contact/order through WhatsApp
-* Build trust and make the business look premium and established
+- Showcase the brand professionally
+- Display products and services
+- Showcase previous work/projects
+- Allow visitors to explore different categories
+- Generate inquiries
+- Let customers contact/order through WhatsApp
+- Build trust and make the business look premium and established
 
 The website should feel like a **luxury gifting and event-decoration brand**, not like a basic local business website.
 
@@ -32,13 +32,13 @@ Use the provided Dulal Arts logo as the primary branding reference.
 
 The logo contains:
 
-* Black
-* White
-* Deep red
-* Gold
-* Elegant typography
-* Circular gold border
-* Red ribbon/bow
+- Black
+- White
+- Deep red
+- Gold
+- Elegant typography
+- Circular gold border
+- Red ribbon/bow
 
 The overall website color palette MUST be derived from the logo.
 
@@ -46,22 +46,22 @@ The overall website color palette MUST be derived from the logo.
 
 Use approximately:
 
-* Deep Burgundy / Red: `#A80000` to `#B51212`
-* Rich Dark Red: `#7F0000`
-* Gold: `#C9A24A`
-* Metallic/Champagne Gold: `#D4AF61`
-* Black: `#0B0B0B`
-* Soft White: `#FAFAF8`
-* Warm Off-White: `#F5F1EA`
+- Deep Burgundy / Red: `#A80000` to `#B51212`
+- Rich Dark Red: `#7F0000`
+- Gold: `#C9A24A`
+- Metallic/Champagne Gold: `#D4AF61`
+- Black: `#0B0B0B`
+- Soft White: `#FAFAF8`
+- Warm Off-White: `#F5F1EA`
 
 Do NOT make the entire website red.
 
 Use:
 
-* White/off-white for large clean areas
-* Black for premium contrast
-* Burgundy/red for CTAs and important accents
-* Gold for borders, highlights, dividers and luxury details
+- White/off-white for large clean areas
+- Black for premium contrast
+- Burgundy/red for CTAs and important accents
+- Gold for borders, highlights, dividers and luxury details
 
 The result should look **expensive, elegant and sophisticated**.
 
@@ -71,23 +71,23 @@ The result should look **expensive, elegant and sophisticated**.
 
 The design should take inspiration from:
 
-* Luxury gifting brands
-* Premium wedding/event brands
-* High-end interior/decor brands
-* Boutique lifestyle brands
-* Editorial fashion websites
+- Luxury gifting brands
+- Premium wedding/event brands
+- High-end interior/decor brands
+- Boutique lifestyle brands
+- Editorial fashion websites
 
 Avoid:
 
-* Generic template appearance
-* Cheap gradients
-* Excessive shadows
-* Excessive rounded cards
-* Huge unnecessary text
-* Too many colors
-* Typical SaaS UI
-* Generic startup landing page design
-* Overuse of glassmorphism
+- Generic template appearance
+- Cheap gradients
+- Excessive shadows
+- Excessive rounded cards
+- Huge unnecessary text
+- Too many colors
+- Typical SaaS UI
+- Generic startup landing page design
+- Overuse of glassmorphism
 
 The website should feel **custom-designed**.
 
@@ -105,17 +105,17 @@ Suggested fonts:
 
 Use an elegant serif such as:
 
-* Playfair Display
-* Cormorant Garamond
-* DM Serif Display
+- Playfair Display
+- Cormorant Garamond
+- DM Serif Display
 
 ### Body/UI
 
 Use:
 
-* Inter
-* Manrope
-* Montserrat
+- Inter
+- Manrope
+- Montserrat
 
 Use serif typography for major headings and modern sans-serif typography for navigation, descriptions and buttons.
 
@@ -158,24 +158,24 @@ Create a premium sticky navbar.
 
 Desktop:
 
-* Dulal Arts logo on the left
-* Navigation centered/right
-* "Customize With Us" CTA on the right
+- Dulal Arts logo on the left
+- Navigation centered/right
+- "Customize With Us" CTA on the right
 
 Mobile:
 
-* Logo
-* Hamburger menu
-* Full-screen or elegant slide-in navigation
+- Logo
+- Hamburger menu
+- Full-screen or elegant slide-in navigation
 
 Navbar should initially be transparent over the hero.
 
 After scrolling:
 
-* Background becomes white/off-white or black depending on section
-* Subtle backdrop blur
-* Small shadow/border
-* Smooth transition
+- Background becomes white/off-white or black depending on section
+- Subtle backdrop blur
+- Small shadow/border
+- Smooth transition
 
 The navbar should animate smoothly.
 
@@ -191,11 +191,11 @@ Create a cinematic premium hero.
 
 Use a large high-quality image related to:
 
-* Birthday decorations
-* Customized gifts
-* Event decor
-* Gift arrangements
-* Luxury hampers
+- Birthday decorations
+- Customized gifts
+- Event decor
+- Gift arrangements
+- Luxury hampers
 
 Use the uploaded Dulal Arts promotional image as visual inspiration.
 
@@ -223,10 +223,10 @@ Secondary CTA:
 
 Hero should include subtle animated decorative elements inspired by:
 
-* Gold particles
-* Ribbon
-* Light reflections
-* Soft floating shapes
+- Gold particles
+- Ribbon
+- Light reflections
+- Soft floating shapes
 
 Do NOT make the animations distracting.
 
@@ -249,9 +249,9 @@ Animations should feel like a luxury brand website.
 
 Use:
 
-* Framer Motion / Motion
-* CSS transitions
-* Intersection Observer where appropriate
+- Framer Motion / Motion
+- CSS transitions
+- Intersection Observer where appropriate
 
 Avoid excessive animation.
 
@@ -271,17 +271,17 @@ Example copy:
 
 Include:
 
-* Short paragraph
-* Image
-* Gold decorative line
-* Small "Discover Our Story" link
+- Short paragraph
+- Image
+- Gold decorative line
+- Small "Discover Our Story" link
 
 Use a split layout.
 
 On scroll:
 
-* Image reveals with a masked animation
-* Text fades/slides in
+- Image reveals with a masked animation
+- Text fades/slides in
 
 ---
 
@@ -337,11 +337,11 @@ Instead of basic cards, create an elegant editorial layout.
 
 Each service should have:
 
-* Large image
-* Service number
-* Service title
-* Short description
-* "Explore" link
+- Large image
+- Service number
+- Service title
+- Short description
+- "Explore" link
 
 Example:
 
@@ -361,15 +361,15 @@ Use hover interactions.
 
 On desktop:
 
-* Image slightly zooms
-* Gold line expands
-* Arrow moves
-* Text shifts subtly
+- Image slightly zooms
+- Gold line expands
+- Arrow moves
+- Text shifts subtly
 
 On mobile:
 
-* Keep interactions touch-friendly
-* No hover-dependent information
+- Keep interactions touch-friendly
+- No hover-dependent information
 
 ---
 
@@ -383,24 +383,24 @@ Display selected products/categories.
 
 Possible categories:
 
-* Birthday Gifts
-* Anniversary Gifts
-* Wedding Gifts
-* Customized Hampers
-* Baby Gifts
-* Corporate Gifts
-* Home Decor
-* Personalized Gifts
-* Celebration Decor
-* Seasonal Gifts
+- Birthday Gifts
+- Anniversary Gifts
+- Wedding Gifts
+- Customized Hampers
+- Baby Gifts
+- Corporate Gifts
+- Home Decor
+- Personalized Gifts
+- Celebration Decor
+- Seasonal Gifts
 
 Each category should have:
 
-* Cover image
-* Name
-* Short description
-* Number of items
-* Explore button
+- Cover image
+- Name
+- Short description
+- Number of items
+- Explore button
 
 Use large visual cards.
 
@@ -412,13 +412,13 @@ Create a beautiful product grid.
 
 Each product should have:
 
-* Product image
-* Product name
-* Category
-* Short description
-* Optional price
-* "View Details"
-* "Customize / Inquire"
+- Product image
+- Product name
+- Category
+- Short description
+- Optional price
+- "View Details"
+- "Customize / Inquire"
 
 IMPORTANT:
 
@@ -426,10 +426,10 @@ Do not make this a shopping cart.
 
 There should be no:
 
-* Cart
-* Checkout
-* Payment gateway
-* Quantity selector
+- Cart
+- Checkout
+- Payment gateway
+- Quantity selector
 
 Instead:
 
@@ -449,15 +449,15 @@ URL example:
 
 Product page should include:
 
-* Large image gallery
-* Product name
-* Category
-* Description
-* Customization information
-* Optional price
-* Available customization options
-* Related products
-* WhatsApp inquiry button
+- Large image gallery
+- Product name
+- Category
+- Description
+- Customization information
+- Optional price
+- Available customization options
+- Related products
+- WhatsApp inquiry button
 
 WhatsApp button should automatically generate a message such as:
 
@@ -477,13 +477,13 @@ Heading:
 
 Show previous work including:
 
-* Birthday setups
-* Gift hampers
-* Customized gifts
-* Event decor
-* Anniversary setups
-* Wedding-related decor
-* Special occasions
+- Birthday setups
+- Gift hampers
+- Customized gifts
+- Event decor
+- Anniversary setups
+- Wedding-related decor
+- Special occasions
 
 Use a masonry/editorial gallery rather than a boring uniform grid.
 
@@ -505,12 +505,12 @@ Open a beautiful lightbox.
 
 Lightbox should include:
 
-* Large image
-* Project title
-* Category
-* Description
-* Close button
-* Previous/next controls
+- Large image
+- Project title
+- Category
+- Description
+- Close button
+- Previous/next controls
 
 Use smooth transitions.
 
@@ -532,10 +532,10 @@ Large image on one side.
 
 Text on the other:
 
-* Project title
-* Occasion
-* Description
-* "View Project"
+- Project title
+- Occasion
+- Description
+- "View Project"
 
 This should feel like an editorial magazine feature.
 
@@ -597,11 +597,11 @@ Secondary CTA:
 
 Create a visually dramatic section using:
 
-* Dark background
-* Gold typography
-* Burgundy accents
-* Subtle animated particles
-* Elegant decorative lines
+- Dark background
+- Gold typography
+- Burgundy accents
+- Subtle animated particles
+- Elegant decorative lines
 
 ---
 
@@ -645,10 +645,10 @@ Heading:
 
 Each testimonial should have:
 
-* Customer name
-* Review
-* Optional occasion
-* Optional photo
+- Customer name
+- Review
+- Optional occasion
+- Optional photo
 
 Use elegant quotation marks.
 
@@ -670,11 +670,11 @@ Hero:
 
 Include:
 
-* Brand story
-* Mission
-* Creative philosophy
-* Images
-* What makes Dulal Arts different
+- Brand story
+- Mission
+- Creative philosophy
+- Images
+- What makes Dulal Arts different
 
 Use editorial storytelling rather than a generic "About Us" template.
 
@@ -692,11 +692,11 @@ Heading:
 
 Include:
 
-* WhatsApp
-* Instagram
-* Phone
-* Email if available
-* Location if available
+- WhatsApp
+- Instagram
+- Phone
+- Email if available
+- Location if available
 
 Do not invent missing contact details.
 
@@ -704,18 +704,18 @@ All contact details should be editable from Sanity.
 
 Include a contact/inquiry form with:
 
-* Name
-* Phone
-* Email
-* Occasion
-* Interested Service
-* Message
+- Name
+- Phone
+- Email
+- Occasion
+- Interested Service
+- Message
 
 On submission:
 
-* Validate form
-* Show success message
-* Provide WhatsApp CTA
+- Validate form
+- Show success message
+- Provide WhatsApp CTA
 
 If backend/email functionality is not configured, do not pretend that the form sends email.
 
@@ -755,17 +755,17 @@ Use Sanity as the CMS.
 
 The website should NOT require code changes whenever Dulal Arts wants to:
 
-* Add products
-* Remove products
-* Change product images
-* Edit descriptions
-* Add services
-* Remove services
-* Add gallery projects
-* Add testimonials
-* Update contact information
-* Update social links
-* Change homepage content
+- Add products
+- Remove products
+- Change product images
+- Edit descriptions
+- Add services
+- Remove services
+- Add gallery projects
+- Add testimonials
+- Update contact information
+- Update social links
+- Change homepage content
 
 Create a proper Sanity content structure.
 
@@ -779,21 +779,21 @@ Create the following schemas.
 
 Fields:
 
-* title
-* slug
-* category
-* description
-* shortDescription
-* images
-* featuredImage
-* price
-* showPrice
-* customizationAvailable
-* customizationDetails
-* featured
-* order
-* seoTitle
-* seoDescription
+- title
+- slug
+- category
+- description
+- shortDescription
+- images
+- featuredImage
+- price
+- showPrice
+- customizationAvailable
+- customizationDetails
+- featured
+- order
+- seoTitle
+- seoDescription
 
 ---
 
@@ -801,15 +801,15 @@ Fields:
 
 Fields:
 
-* title
-* slug
-* shortDescription
-* description
-* image
-* icon
-* featured
-* order
-* relatedProducts
+- title
+- slug
+- shortDescription
+- description
+- image
+- icon
+- featured
+- order
+- relatedProducts
 
 ---
 
@@ -817,12 +817,12 @@ Fields:
 
 Fields:
 
-* name
-* slug
-* description
-* coverImage
-* featured
-* order
+- name
+- slug
+- description
+- coverImage
+- featured
+- order
 
 ---
 
@@ -830,16 +830,16 @@ Fields:
 
 Fields:
 
-* title
-* slug
-* category
-* coverImage
-* galleryImages
-* description
-* occasion
-* featured
-* date
-* order
+- title
+- slug
+- category
+- coverImage
+- galleryImages
+- description
+- occasion
+- featured
+- date
+- order
 
 ---
 
@@ -847,12 +847,12 @@ Fields:
 
 Fields:
 
-* customerName
-* review
-* occasion
-* image
-* featured
-* order
+- customerName
+- review
+- occasion
+- image
+- featured
+- order
 
 ---
 
@@ -860,16 +860,16 @@ Fields:
 
 Fields:
 
-* brandName
-* tagline
-* WhatsAppNumber
-* phone
-* email
-* InstagramURL
-* address
-* logo
-* favicon
-* defaultSEOImage
+- brandName
+- tagline
+- WhatsAppNumber
+- phone
+- email
+- InstagramURL
+- address
+- logo
+- favicon
+- defaultSEOImage
 
 ---
 
@@ -879,12 +879,12 @@ Use Sanity image assets.
 
 Implement:
 
-* Responsive images
-* Lazy loading
-* Proper image cropping
-* Modern formats where supported
-* Blur placeholders
-* Responsive sizes
+- Responsive images
+- Lazy loading
+- Proper image cropping
+- Modern formats where supported
+- Blur placeholders
+- Responsive sizes
 
 Images are extremely important for this brand.
 
@@ -898,10 +898,10 @@ Where actual product images are unavailable, use elegant temporary placeholders 
 
 The website must be excellent on:
 
-* Desktop
-* Laptop
-* Tablet
-* Mobile
+- Desktop
+- Laptop
+- Tablet
+- Mobile
 
 Do not simply shrink the desktop design.
 
@@ -925,9 +925,9 @@ Use animation throughout the website but keep it sophisticated.
 
 Use:
 
-* Framer Motion / Motion
-* Intersection Observer
-* CSS transitions
+- Framer Motion / Motion
+- Intersection Observer
+- CSS transitions
 
 Animations:
 
@@ -981,14 +981,14 @@ Respect:
 
 Add subtle details such as:
 
-* Gold line expanding on hover
-* Arrow icons moving 4–6px
-* Images zooming 1.03x
-* Elegant underline animation
-* Cursor interaction on desktop if appropriate
-* Smooth scrolling
-* Section reveal animations
-* Image masking
+- Gold line expanding on hover
+- Arrow icons moving 4–6px
+- Images zooming 1.03x
+- Elegant underline animation
+- Cursor interaction on desktop if appropriate
+- Smooth scrolling
+- Section reveal animations
+- Image masking
 
 Do not add a huge custom cursor unless it genuinely improves the experience.
 
@@ -998,12 +998,12 @@ Do not add a huge custom cursor unless it genuinely improves the experience.
 
 Use subtle visual motifs inspired by the logo:
 
-* Gold circular lines
-* Ribbon-inspired curves
-* Small red dots
-* Thin gold separators
-* Elegant arches
-* Fine borders
+- Gold circular lines
+- Ribbon-inspired curves
+- Small red dots
+- Thin gold separators
+- Elegant arches
+- Fine borders
 
 These should reinforce the brand identity.
 
@@ -1025,17 +1025,17 @@ Dulal Arts
 
 Navigation:
 
-* Home
-* About
-* Services
-* Collections
-* Gallery
-* Contact
+- Home
+- About
+- Services
+- Collections
+- Gallery
+- Contact
 
 Social:
 
-* Instagram
-* WhatsApp
+- Instagram
+- WhatsApp
 
 CTA:
 
@@ -1051,29 +1051,29 @@ Implement proper SEO.
 
 Each page should have:
 
-* Title
-* Meta description
-* Open Graph metadata
-* Twitter/X metadata
-* Canonical URL
-* Proper heading hierarchy
-* Semantic HTML
+- Title
+- Meta description
+- Open Graph metadata
+- Twitter/X metadata
+- Canonical URL
+- Proper heading hierarchy
+- Semantic HTML
 
 Dynamic product/service/gallery pages should generate metadata from Sanity.
 
 Create:
 
-* sitemap.xml
-* robots.txt
+- sitemap.xml
+- robots.txt
 
 Use structured data where appropriate.
 
 Potential schema types:
 
-* Organization
-* LocalBusiness if appropriate
-* Product for individual products where applicable
-* BreadcrumbList
+- Organization
+- LocalBusiness if appropriate
+- Product for individual products where applicable
+- BreadcrumbList
 
 Do not invent business information.
 
@@ -1085,15 +1085,15 @@ Performance is extremely important.
 
 Target:
 
-* Fast initial page load
-* Optimized images
-* Lazy-loaded gallery images
-* Code splitting
-* Minimal JavaScript where possible
-* Avoid unnecessary dependencies
-* Use Next.js Image
-* Avoid huge client components
-* Keep animations performant
+- Fast initial page load
+- Optimized images
+- Lazy-loaded gallery images
+- Code splitting
+- Minimal JavaScript where possible
+- Avoid unnecessary dependencies
+- Use Next.js Image
+- Avoid huge client components
+- Keep animations performant
 
 Aim for excellent Lighthouse scores.
 
@@ -1103,15 +1103,15 @@ Aim for excellent Lighthouse scores.
 
 Implement:
 
-* Proper semantic HTML
-* Alt text from CMS
-* Keyboard navigation
-* Visible focus states
-* Accessible buttons
-* Accessible dialogs/lightboxes
-* Proper color contrast
-* Reduced motion support
-* ARIA labels where necessary
+- Proper semantic HTML
+- Alt text from CMS
+- Keyboard navigation
+- Visible focus states
+- Accessible buttons
+- Accessible dialogs/lightboxes
+- Proper color contrast
+- Reduced motion support
+- ARIA labels where necessary
 
 ---
 
@@ -1119,13 +1119,13 @@ Implement:
 
 Use:
 
-* Next.js
-* TypeScript
-* Tailwind CSS
-* Sanity CMS
-* Next.js Image
-* Motion / Framer Motion
-* Modern component architecture
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Sanity CMS
+- Next.js Image
+- Motion / Framer Motion
+- Modern component architecture
 
 Prefer the latest stable versions supported by the project environment.
 
@@ -1139,23 +1139,23 @@ Do not create one giant page component.
 
 Create reusable components such as:
 
-* Navbar
-* MobileMenu
-* Hero
-* SectionHeading
-* ServiceCard
-* ProductCard
-* CategoryCard
-* GalleryGrid
-* GalleryLightbox
-* TestimonialCard
-* WhatsAppButton
-* CTASection
-* Footer
-* ImageReveal
-* AnimatedText
-* PageTransition
-* Breadcrumbs
+- Navbar
+- MobileMenu
+- Hero
+- SectionHeading
+- ServiceCard
+- ProductCard
+- CategoryCard
+- GalleryGrid
+- GalleryLightbox
+- TestimonialCard
+- WhatsAppButton
+- CTASection
+- Footer
+- ImageReveal
+- AnimatedText
+- PageTransition
+- Breadcrumbs
 
 Keep the architecture clean and scalable.
 
@@ -1175,11 +1175,11 @@ Create proper TypeScript types for CMS data.
 
 Handle:
 
-* Loading states
-* Empty states
-* Missing images
-* Missing optional fields
-* Errors
+- Loading states
+- Empty states
+- Missing images
+- Missing optional fields
+- Errors
 
 ---
 
@@ -1187,16 +1187,16 @@ Handle:
 
 Do NOT invent:
 
-* Customer reviews
-* Product prices
-* Business address
-* Email
-* Phone numbers
-* Services that the business doesn't actually offer
-* Awards
-* Certifications
-* Years of experience
-* Customer statistics
+- Customer reviews
+- Product prices
+- Business address
+- Email
+- Phone numbers
+- Services that the business doesn't actually offer
+- Awards
+- Certifications
+- Years of experience
+- Customer statistics
 
 Use placeholders only where necessary and make them clearly editable through Sanity.
 
@@ -1208,12 +1208,12 @@ The provided logo and branding should be treated as the source of truth for visu
 
 The website copy should feel:
 
-* Warm
-* Elegant
-* Creative
-* Premium
-* Personal
-* Emotional
+- Warm
+- Elegant
+- Creative
+- Premium
+- Personal
+- Emotional
 
 Avoid overly corporate language.
 
@@ -1256,14 +1256,14 @@ Do not make every section look like a separate card grid.
 
 Alternate layouts:
 
-* Full-width image
-* Split text/image
-* Editorial grid
-* Large typography
-* Dark section
-* Light section
-* Gallery
-* Product showcase
+- Full-width image
+- Split text/image
+- Editorial grid
+- Large typography
+- Dark section
+- Light section
+- Gallery
+- Product showcase
 
 This is critical.
 
@@ -1277,11 +1277,11 @@ On desktop, use generous whitespace.
 
 Use:
 
-* Large typography
-* Full-width images
-* Asymmetric layouts
-* Editorial compositions
-* Large product photography
+- Large typography
+- Full-width images
+- Asymmetric layouts
+- Editorial compositions
+- Large product photography
 
 The website should feel immersive.
 
@@ -1291,13 +1291,13 @@ The website should feel immersive.
 
 On mobile:
 
-* Keep typography readable
-* Maintain strong imagery
-* Make CTAs prominent
-* Keep navigation simple
-* Use horizontal scrolling only where it improves UX
-* Avoid extremely large text
-* Avoid layout overflow
+- Keep typography readable
+- Maintain strong imagery
+- Make CTAs prominent
+- Keep navigation simple
+- Use horizontal scrolling only where it improves UX
+- Avoid extremely large text
+- Avoid layout overflow
 
 The mobile website should feel equally premium.
 
@@ -1307,18 +1307,18 @@ The mobile website should feel equally premium.
 
 Before considering the website complete, verify:
 
-* Does it look like a luxury gifting brand?
-* Does the logo feel naturally integrated?
-* Are red, black, white and gold used consistently?
-* Does the website feel premium rather than generic?
-* Are the images the visual focus?
-* Are animations smooth rather than excessive?
-* Can the owner update everything through Sanity?
-* Does WhatsApp work from product/service CTAs?
-* Is the website fully responsive?
-* Does the site load quickly?
-* Are there no fake testimonials or business claims?
-* Are there no unnecessary e-commerce features?
+- Does it look like a luxury gifting brand?
+- Does the logo feel naturally integrated?
+- Are red, black, white and gold used consistently?
+- Does the website feel premium rather than generic?
+- Are the images the visual focus?
+- Are animations smooth rather than excessive?
+- Can the owner update everything through Sanity?
+- Does WhatsApp work from product/service CTAs?
+- Is the website fully responsive?
+- Does the site load quickly?
+- Are there no fake testimonials or business claims?
+- Are there no unnecessary e-commerce features?
 
 ---
 

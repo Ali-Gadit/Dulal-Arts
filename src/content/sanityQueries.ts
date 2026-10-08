@@ -1,4 +1,4 @@
-import { client, urlFor } from "@/lib/sanity";
+﻿import { client, urlFor } from "@/lib/sanity";
 import type {
   Category,
   GalleryProject,
@@ -89,7 +89,7 @@ export async function getServices(): Promise<Service[]> {
       src: serviceFallbacks[i % serviceFallbacks.length],
       alt: s.title,
     },
-    featured: s.featured,
+    price: s.price, featured: s.featured,
     order: s.order,
   }));
 }
@@ -117,10 +117,9 @@ export async function getProducts(): Promise<Product[]> {
     images: (p.images || []).map(resolveImage),
     featuredImage: resolveImage(p.featuredImage),
     price: p.price,
-    showPrice: p.showPrice,
     customizationAvailable: p.customizationAvailable,
     customizationDetails: p.customizationDetails || [],
-    featured: p.featured,
+    price: p.price, featured: p.featured,
     order: p.order,
     seoTitle: p.seoTitle,
     seoDescription: p.seoDescription,
@@ -157,7 +156,7 @@ export async function getGalleryProjects(): Promise<GalleryProject[]> {
     galleryImages: (p.galleryImages || []).map(resolveImage),
     description: p.description,
     occasion: p.occasion,
-    featured: p.featured,
+    price: p.price, featured: p.featured,
     order: p.order,
   }));
 }
@@ -200,3 +199,4 @@ export async function getWhyPoints(): Promise<WhyPoint[]> {
     order: w.order,
   }));
 }
+

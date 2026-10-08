@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import {
   featuredProjectImage,
   siteSettings,
@@ -71,20 +71,34 @@ function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="Our Story"
-              title="It Started With One Gift"
-              intro="Dulal Arts began the way most good ideas do — with a gift that needed to say something a shop-bought box could not."
+              title="Our Story ❤️"
+              intro="DulalArts — Where every idea is as unique as you are."
             >
               <Reveal delay={0.22}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-                  What began as personal, handmade gifting grew into a studio for customized gifts,
-                  curated hampers and full celebration decor. The approach has not changed:
-                  understand the moment first, then design for it.
+                  DulalArts began with a creative girl, a head full of dreams, and one person who truly believed in her.
                 </p>
               </Reveal>
               <Reveal delay={0.28}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-                  We take on birthdays, anniversaries, weddings, baby celebrations and corporate
-                  gifting — from a single engraved keepsake to a styled room.
+                  Before DulalArts, I tried many names, including Handmade D. But when I met the person who supported my creativity and believed in my dream, the name finally found its meaning: Dua + &ldquo;lal&rdquo; from his name = DulalArts.
+                </p>
+              </Reveal>
+              <Reveal delay={0.34}>
+                <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
+                  We believe love and appreciation shouldn't wait for a special occasion. A handmade gift, a thoughtful note, or a little surprise can tell someone, &ldquo;You matter to me.&rdquo;
+                </p>
+              </Reveal>
+              <Reveal delay={0.40}>
+                <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
+                  Our dream is bigger than gifts &amp; Decor. One day, we hope to grow into DulalArts Mart, a home for Pakistani artists, their creations, and the stories behind them. 🇵🇰❤️
+                </p>
+              </Reveal>
+              <Reveal delay={0.46}>
+                <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground font-medium">
+                  DulalArts — Where every idea is as unique as you are.
+                  <br />
+                  Customize your khushiyan with us
                 </p>
               </Reveal>
             </SectionHeading>
@@ -221,3 +235,9 @@ function AboutPage() {
     </>
   );
 }
+
+
+
+
+
+

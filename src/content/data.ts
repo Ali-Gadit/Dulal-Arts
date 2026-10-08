@@ -273,7 +273,6 @@ export const products: Product[] = [
       alt: "Engraved wooden keepsake box with monogrammed cards",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: [
       "Engraved name, initials or date",
@@ -302,7 +301,6 @@ export const products: Product[] = [
       alt: "Personalized wooden photo frame beside a handwritten sealed note",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: [
       "Engraved name and message",
@@ -327,7 +325,6 @@ export const products: Product[] = [
       alt: "Celebration hamper basket with treats, candle and gold bow",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: [
       "Choose the contents and budget",
@@ -352,7 +349,6 @@ export const products: Product[] = [
       alt: "Birthday gift box with candle, tumbler and personal card",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: ["Printed name and message", "Colour theme", "Add-on cake or florals"],
     featured: true,
@@ -376,7 +372,6 @@ export const products: Product[] = [
       alt: "Anniversary rose box with framed photograph and candles",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: [
       "Your photograph printed and framed",
@@ -401,7 +396,6 @@ export const products: Product[] = [
       alt: "Ivory and gold trousseau trays with monogrammed boxes",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: [
       "Monogram design",
@@ -429,7 +423,6 @@ export const products: Product[] = [
       alt: "Baby welcome gift set with blanket, shoes and engraved name blocks",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: ["Engraved baby name", "Colour palette", "Add-on keepsake frame"],
     featured: true,
@@ -453,7 +446,6 @@ export const products: Product[] = [
       alt: "Black and gold corporate gift set with notebook, pen and coffee tin",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: ["Logo foil stamping", "Bulk quantities", "Custom insert card"],
     featured: false,
@@ -474,7 +466,6 @@ export const products: Product[] = [
       alt: "Gold-leaf resin art piece and brass nameplate on a shelf",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: [
       "Family or business name",
@@ -502,7 +493,6 @@ export const products: Product[] = [
       alt: "Chocolate and flower bouquet wrapped in burgundy paper with gold ribbon",
     },
     price: null,
-    showPrice: false,
     customizationAvailable: true,
     customizationDetails: ["Bloom and chocolate selection", "Wrapping colour", "Message card"],
     featured: true,
