@@ -1,4 +1,4 @@
-﻿import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { whatsappLink, messages } from "@/lib/whatsapp";
 import { useEffect, useRef } from "react";
@@ -111,7 +111,7 @@ export function GalleryLightbox({
             <h2 className="font-display text-2xl text-ink-foreground">{project.title}</h2>
             
               <p className="mt-2 text-[0.62rem] uppercase tracking-[0.22em] text-gold">{project.occasion ?? project.category}</p>{project.price ? (
-                  <p className="mt-2 text-[0.95rem] font-medium text-ink-foreground">{project.price}</p>
+                  <p className="mt-2 text-[0.95rem] font-medium text-ink-foreground">Rs. {project.price}</p>
                 ) : (
                   <p className="mt-2 text-[0.85rem] font-medium text-ink-foreground">
                     <a href={whatsappLink(messages.project(project.title)) || "/contact"} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors">

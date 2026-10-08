@@ -1,4 +1,4 @@
-﻿import { Link } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import type { Category, Product, Service } from "@/content/types";
 import { Reveal } from "./Reveal";
@@ -41,7 +41,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
             {service.shortDescription}
           </p>
           {service.price ? (
-              <p className="mt-3 text-[1.1rem] font-medium text-foreground">{service.price}</p>
+              <p className="mt-3 text-[1.1rem] font-medium text-foreground">Rs. {service.price}</p>
             ) : (
               <p className="mt-3 text-[0.95rem] font-medium text-foreground">
                 <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(whatsappLink(messages.service(service.title)) || "/contact", "_blank"); }} className="underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors cursor-pointer">
@@ -149,7 +149,7 @@ export function ProductCard({
             {product.shortDescription}
           </p>
           {product.price ? (
-            <p className="mt-3 text-sm text-foreground">{product.price}</p>
+            <p className="mt-3 text-sm text-foreground">Rs. {product.price}</p>
           ) : (
             <p className="mt-3 text-sm text-foreground">
               <span onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(whatsappLink(messages.product(product.title)) || "/contact", "_blank"); }} className="underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors cursor-pointer">

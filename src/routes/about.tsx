@@ -92,7 +92,7 @@ function AboutPage() {
               <Reveal delay={0.40}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
                   Our dream is bigger than gifts &amp; Decor. One day, we hope to grow into DulalArts Mart, a home for Pakistani artists, their creations, and the stories behind them. 🇵🇰❤️
-                </p>
+                  </p>
               </Reveal>
               <Reveal delay={0.46}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground font-medium">
