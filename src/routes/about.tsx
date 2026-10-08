@@ -91,7 +91,7 @@ function AboutPage() {
               </Reveal>
               <Reveal delay={0.40}>
                 <p className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
-                  Our dream is bigger than gifts &amp; Decor. One day, we hope to grow into DulalArts Mart, a home for Pakistani artists, their creations, and the stories behind them. 🇵🇰❤️
+                  Our dream is bigger than gifts &amp; Decor. One day, we hope to grow into DulalArts Mart, a home for Pakistani artists, their creations, and the stories behind them. <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1f5-1f1f0.svg" alt="PK Flag" className="inline-block w-[1.2em] h-[1.2em] mx-1 align-text-bottom" />❤️
                   </p>
               </Reveal>
               <Reveal delay={0.46}>
