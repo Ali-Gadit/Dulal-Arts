@@ -58,6 +58,31 @@ export default defineConfig({
                           ),
                       ),
                     S.listItem()
+                      .title("Arts")
+                      .child(
+                        S.documentList()
+                          .title("Arts")
+                          .filter('_type == "service" && category == "Arts"'),
+                      ),
+                    S.listItem()
+                      .title("motiyan by DulalArts")
+                      .child(
+                        S.documentList()
+                          .title("motiyan by DulalArts")
+                          .filter(
+                            '_type == "service" && category == "motiyan by DulalArts"',
+                          ),
+                      ),
+                    S.listItem()
+                      .title("Return Gifts & Favours")
+                      .child(
+                        S.documentList()
+                          .title("Return Gifts & Favours")
+                          .filter(
+                            '_type == "service" && (category == "Return Gifts & Favours" || category == "Return Gifs & Favours")',
+                          ),
+                      ),
+                    S.listItem()
                       .title("All Services")
                       .child(S.documentList().title("All Services").filter('_type == "service"')),
                   ]),

@@ -16,6 +16,12 @@ import galleryEngagement from "@/assets/gallery-engagement.jpg";
 import galleryBouquet from "@/assets/gallery-bouquet.jpg";
 import featuredProject from "@/assets/featured-project.jpg";
 import productFrame from "@/assets/product-frame.jpg";
+import creationsImg19 from "@/assets/IMG-20261026-WA0019.jpg";
+import creationsImg20 from "@/assets/IMG-20261026-WA0020.jpg";
+import creationsImg21 from "@/assets/IMG-20261026-WA0021.jpg";
+import creationsImg25 from "@/assets/IMG-20261026-WA0025.jpg";
+import creationsImg28 from "@/assets/IMG-20261026-WA0028.jpg";
+import creationsImg31 from "@/assets/IMG-20261026-WA0031.jpg";
 
 import type {
   Category,
@@ -691,12 +697,12 @@ export const whyPoints: WhyPoint[] = [
 ];
 
 export const instagramFeed = [
-  { src: collectionBirthday, alt: "Birthday gift box styled in burgundy and gold" },
-  { src: galleryBouquet, alt: "Burgundy wrapped bouquet with chocolates" },
-  { src: serviceBirthday, alt: "Birthday balloon and cake setup" },
-  { src: serviceCustomGifts, alt: "Engraved keepsake gift set" },
-  { src: galleryEngagement, alt: "Engagement ring platter in velvet and gold" },
-  { src: serviceHampers, alt: "Curated gift hamper with gold bow" },
+  { src: creationsImg19, alt: "Custom birthday gift basket with photos, balloons and treats" },
+  { src: creationsImg20, alt: "Celebration gift hamper wrapped with elegant blue ribbon" },
+  { src: creationsImg21, alt: "Floral claw clip bouquet with personalized greeting card" },
+  { src: creationsImg25, alt: "Hand-painted custom portrait canvas artwork" },
+  { src: creationsImg28, alt: "Dulal Arts lifelong flower shop and craft exhibition stall" },
+  { src: creationsImg31, alt: "Handcrafted cash bouquet with ribbons and chocolates" },
 ];
 
 export const navigation = [

@@ -1,4 +1,4 @@
-﻿export default {
+export default {
   name: "service",
   title: "Service",
   type: "document",
@@ -23,6 +23,9 @@
           { title: "Pretty Little Decor", value: "Pretty Little Decor" },
           { title: "Gifts", value: "Gifts" },
           { title: "Wrapping & Packaging Services", value: "Wrapping & Packaging Services" },
+          { title: "Arts", value: "Arts" },
+          { title: "motiyan by DulalArts", value: "motiyan by DulalArts" },
+          { title: "Return Gifts & Favours", value: "Return Gifts & Favours" },
         ],
       },
     },

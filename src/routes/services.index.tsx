@@ -35,7 +35,8 @@ function ServicesPage() {
 
   const grouped = services.reduce(
     (acc, service) => {
-      const cat = service.category || "Other";
+      const rawCat = service.category || "Other";
+      const cat = rawCat === "Return Gifs & Favours" ? "Return Gifts & Favours" : rawCat;
       if (!acc[cat]) acc[cat] = [];
       acc[cat].push(service);
       return acc;
@@ -48,6 +49,9 @@ function ServicesPage() {
     "Pretty Little Decor",
     "Gifts",
     "Wrapping & Packaging Services",
+    "Arts",
+    "motiyan by DulalArts",
+    "Return Gifts & Favours",
     "Other",
   ];
 

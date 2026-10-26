@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Content model for Dulal Arts.
  *
  * These types mirror a headless-CMS schema (Product, Service, Category,
@@ -59,7 +59,6 @@ export type Product = {
   images: ImageAsset[];
   featuredimage: ImageAsset | null;
   price?: string | null;
-  price: string | null;
   customizationAvailable: boolean;
   customizationDetails: string[];
   featured: boolean;
