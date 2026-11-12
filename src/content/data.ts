@@ -56,7 +56,7 @@ export const siteSettings: SiteSettings = {
   tagline: "Where Every Idea Is As Unique As You Are",
   whatsappNumber: "+92 312 2496325",
   phone: null,
-  email: "akramdua96@gmail.com",
+  email: "dulalartsstore@gmail.com",
   instagramUrl: "https://www.instagram.com/dulal.arts/",
   facebookUrl: "https://www.facebook.com/CreationsByDua",
   address: null,
